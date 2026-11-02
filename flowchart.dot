@@ -1,0 +1,586 @@
+digraph OS_Choice {
+  rankdir=TB;
+  splines=ortho;
+  newrank=true;
+  nodesep=0.7;
+  ranksep=1.05;
+  pad=0.4;
+  bgcolor="white";
+
+  node [fontname="DejaVu Sans", fontsize=13, penwidth=1.6];
+  edge [fontname="DejaVu Sans Bold", fontsize=12, penwidth=2.0, arrowsize=1.0];
+
+  // ================= МАГИСТРАЛЬ (цепочка, вес 10 — держит вертикаль) =================
+  START [label="СТАРТ\nКакую ОС ставить?", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=14, width=2.4, height=1.1];
+  D1 [label="Играешь\nв AAA?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D2 [label="ПК слабый?\n≤8 ГБ / 10+ лет", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D3 [label="Сервер / NAS /\nHomelab?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D4 [label="Анонимность /\nпентест?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D5 [label="Монтаж / музыка /\nдизайн?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D6 [label="Кодишь?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D7 [label="Нужны 1С /\nOffice / Photoshop?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  D8 [label="Apple +\nесть деньги?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D9 [label="«Просто работает»?\n(нет = сам настрою)", shape=diamond, style=filled, fillcolor="#fef08a", width=2.6, height=1.4];
+
+  START -> D1 [xlabel="начать", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D1 -> D2 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D2 -> D3 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D3 -> D4 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D4 -> D5 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D5 -> D6 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D6 -> D7 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D7 -> D8 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D8 -> D9 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+
+  // ================= ВЕТКА 1: ГЕЙМИНГ =================
+  subgraph cluster_gaming {
+    label="ВЕТКА: Гейминг";
+    style="filled,rounded"; fillcolor="#faf5ff"; color="#c084fc"; fontsize=12;
+    D1a [label="Античит?\nValorant / FaceIT", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D1b [label="Геймпад +\nдиван?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D1c [label="Linux,\nно макс. FPS?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    WIN11 [label="Windows 11\n«все так живут»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    ATLAS [label="AtlasOS\n«выжатая Win для игр»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    BAZZITE [label="Bazzite\n«Deck на максималках»", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    CHIMERA [label="ChimeraOS / SteamOS\n«консоль из ПК»", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    HOLOISO [label="HoloISO\n«SteamOS на любом ПК»", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    NOBARA [label="Nobara\n«Fedora для геймеров»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    CACHY [label="CachyOS\n«Arch на стероидах»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    GARUDA [label="Garuda\n«дракон с RGB»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    POPOS [label="Pop!_OS\n«геймер-инженер»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    PIKAOS [label="PikaOS\n«геймерский Debian»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SUPERG [label="SuperGamer / Chapeau / Ultimate Edition\n«игры нулевых»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+  }
+  D1 -> D1a [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D1a -> WIN11 [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D1a -> D1b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D1b -> BAZZITE [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D1b -> D1c [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D1c -> NOBARA [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D1c -> POPOS [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  WIN11 -> ATLAS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BAZZITE -> CHIMERA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CHIMERA -> HOLOISO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  NOBARA -> CACHY [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CACHY -> GARUDA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  POPOS -> PIKAOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  POPOS -> SUPERG [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 2: СЛАБЫЙ ПК =================
+  subgraph cluster_oldpc {
+    label="ВЕТКА: Воскрешение железа";
+    style="filled,rounded"; fillcolor="#fefce8"; color="#eab308"; fontsize=12;
+    D2a [label="Динозавр?\n1–2 ГБ / 32-бит", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D2b [label="Красиво\nна 4–8 ГБ?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    TINYCORE [label="TinyCore / Puppy\n«грузятся из ОЗУ»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    ANTIX [label="antiX\n«без systemd»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    ALPINE [label="Alpine\n«5 МБ и ты мужик»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    CHIMLINUX [label="Chimera Linux\n«musl-десктоп»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    KOLIBRI [label="KolibriOS\n«1 МБ + GUI!»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    DSLBOX [label="Damn Small / Feather / MuLinux / Austrumi\n«дистро-диета»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    SLITAZ [label="SliTaz / 4MLinux / Tiny SliTaz\n«крошки»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    LINCON [label="LinuxConsole\n«французский live-CD»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    DELI [label="DeLi / DeLicate / ConnochaetOS\n«ретро-минимализм»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    TINY2 [label="Monkey / Knopperdisk / DOSLINUX\n«микро-дистро»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    PUPBOX [label="PuppyRus / Legacy OS / Macpup / Quirky / PUD\n«щенки»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    RESCUE [label="SystemRescue / grml / Finnix / Knoppix / DRBL / Parted Magic / tomsrtbt / Refracta\n«спасатели»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    RESCUE2 [label="Rescatux / Super Grub2 Disk / RIP / Stresslinux / PloP / Resulinux\n«чинилки»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    MORPHIX [label="Morphix / Quantian / DNALinux / ParallelKnoppix / Kaella / Demolinux\n«пионеры live-CD»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    MINTXFCE [label="Lubuntu / Xubuntu\n«ноут ожил»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    BODHI [label="Bodhi Linux\n«лёгкая и красивая»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    LITELX [label="Linux Lite / LXLE / Peppermint / Fluxbuntu / Greenie / Runtu / TinyMe / U-lite\n«лёгкие Ubuntu»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SIMPLX [label="Simplicity / Snowlinux / SalineOS / ToriOS\n«лёгкие нулевых»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    EMMAB [label="Emmabuntüs\n«ПК для бедных»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    NETBOOK [label="Eeebuntu / Joli / Jolicloud / gOS / EasyPeasy / Cub / Netbook / Linpus\n«нетбуки»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    MXLINUX [label="MX Linux\n«диванный админ»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    Q4OS [label="Q4OS\n«как XP, но Linux»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ZORINLITE [label="Zorin Lite\n«для бабушки»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SPARKY [label="SparkyLinux\n«Debian полегче»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+  }
+  D2 -> D2a [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D2a -> TINYCORE [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D2a -> D2b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D2b -> MINTXFCE [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D2b -> MXLINUX [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  TINYCORE -> ANTIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  TINYCORE -> RESCUE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  RESCUE -> RESCUE2 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  RESCUE -> MORPHIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ANTIX -> ALPINE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ANTIX -> DSLBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DSLBOX -> SLITAZ [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DSLBOX -> DELI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DSLBOX -> TINY2 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SLITAZ -> PUPBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SLITAZ -> LINCON [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ALPINE -> CHIMLINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ALPINE -> KOLIBRI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  MINTXFCE -> BODHI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BODHI -> LITELX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BODHI -> EMMAB [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  LITELX -> SIMPLX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  EMMAB -> NETBOOK [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  MXLINUX -> Q4OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  Q4OS -> ZORINLITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ZORINLITE -> SPARKY [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 3: СЕРВЕР =================
+  subgraph cluster_server {
+    label="ВЕТКА: Сервер / NAS / сеть";
+    style="filled,rounded"; fillcolor="#fef2f2"; color="#f87171"; fontsize=12;
+    D3a [label="Виртуалки?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D3b [label="NAS /\nмедиа?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D3c [label="Корпоративный\nстандарт?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D3d [label="Роутер /\nфайрвол?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    PROXMOX [label="Proxmox VE\n«домашний дата-центр»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    PELICAN [label="PelicanHPC\n«кластер-флешка»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    RANCHER [label="RancherOS / Container Linux\n«контейнерные»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    TRUENAS [label="TrueNAS SCALE\n«хранитель фильмов»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    OMV [label="OpenMediaVault\n«NAS из старого ПК»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    UNRAID [label="Unraid\n«NAS, но платный»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    CASAOS [label="CasaOS\n«сервер для чайников»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    TURNKEY [label="TurnKey / Univention / Amahi / BlueOnyx / Zentyal\n«сервер в 1 клик»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    SMESRV [label="SME Server / IPCop / Elastix / ClarkConnect / Untangle / Annvix / Nitix / Trustix\n«серверы нулевых»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    RPID [label="Raspberry Pi OS / Raspbian / Twister / DietPi / Arch ARM / Flint OS / OSMC\n«для малинки»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    HTPC [label="LinHES / GeeXboX / LinuxMCE / LibreELEC / MythDora / KnoppMyth\n«медиацентр»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    XIGBOX [label="XigmaNAS / m0n0wall / Openfiler / Rockstor / OviOS\n«олдскул-NAS»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    ROCKY [label="Rocky / Alma / RHEL\n«корпоративный»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    RHELCLONES [label="CentOS / Oracle / Scientific / Rocks / CERN / PUIAS / Springdale / Tao\n«клоны RHEL»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    AMAZON [label="Amazon Linux\n«облако AWS»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    CLOUDLIN [label="CloudLinux\n«хостингам»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    OSCRPM [label="Korora / Kororaa / Yellow Dog / Red Flag / Asianux / Miracle / Fermi / ClearOS\n«покойники RPM»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    SUSELE [label="SUSE / SLES\n«немецкий RHEL»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    DEBIANSRV [label="Debian / Ubuntu Server\n«стоит годами»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    DEVUAN [label="Devuan\n«Debian без systemd»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    OPNSENSE [label="OPNsense\n«роутер-монстр»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    PFSENSE [label="pfSense\n«роутер для офиса»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    OPENWRT [label="OpenWrt\n«прошивка для роутера»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    VYOS [label="VyOS / Vyatta / DD-WRT / IPFire / Endian\n«роутер-гик»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    COYOTE [label="Coyote / FREESCO / BrazilFW\n«роутеры-дискеты»", shape=box, style="filled,rounded", fillcolor="#fca5a5"];
+    LEDE [label="LEDE\n«предок OpenWrt»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    FREEBSD [label="FreeBSD\n«ZFS-маньяк»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    OPENBSD [label="OpenBSD\n«параноик-сервер»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+  }
+  D3 -> D3a [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D3a -> PROXMOX [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D3a -> D3b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D3b -> TRUENAS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D3b -> D3c [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D3c -> ROCKY [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D3c -> D3d [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D3d -> OPNSENSE [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D3d -> DEBIANSRV [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  PROXMOX -> PELICAN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  PROXMOX -> RANCHER [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  TRUENAS -> OMV [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  TRUENAS -> HTPC [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OMV -> UNRAID [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OMV -> XIGBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  UNRAID -> CASAOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CASAOS -> TURNKEY [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CASAOS -> RPID [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  TURNKEY -> SMESRV [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ROCKY -> RHELCLONES [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ROCKY -> SUSELE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  RHELCLONES -> AMAZON [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  RHELCLONES -> OSCRPM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  AMAZON -> CLOUDLIN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DEBIANSRV -> DEVUAN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DEBIANSRV -> FREEBSD [xlabel="или BSD?", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  FREEBSD -> OPENBSD [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OPNSENSE -> PFSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  PFSENSE -> OPENWRT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OPENWRT -> VYOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OPENWRT -> LEDE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  VYOS -> COYOTE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 4: ПРИВАТНОСТЬ / ПЕНТЕСТ =================
+  subgraph cluster_privacy {
+    label="ВЕТКА: Приватность / пентест";
+    style="filled,rounded"; fillcolor="#eef2ff"; color="#818cf8"; fontsize=12;
+    D4a [label="Анонимность\nпрямо сейчас?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D4b [label="Всё по\nвиртуалкам?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D4c [label="Пентест /\nвзлом?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    TAILS [label="Tails\n«флешка-невидимка»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    LPSBOX [label="LPS / Tinfoil Hat / EnGarde / Devil-Linux / Openwall\n«спецназ»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    LIBERTE [label="Liberté\n«анархия-флешка»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    QUBES [label="Qubes OS\n«всё по виртуалкам»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    HEADS [label="Heads / Septor\n«паранойя в прошивке»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    TORBOX [label="TorBOX\n«Tor-шлюз»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    KALI [label="Kali\n«хакер из кино»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    PARROT [label="Parrot OS\n«Kali с душой»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    BLACKARCH [label="BlackArch\n«2800 утилит»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    ATHENA [label="Athena OS\n«кибер-ниндзя»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    BACKBOX [label="BackBox / SecUntu\n«Ubuntu-пентест»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    NETHUNTER [label="Kali NetHunter\n«взлом с телефона»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    DVULN [label="Damn Vulnerable\n«учись ломать»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    OPHCRACK [label="Ophcrack\n«сброс паролей»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    BACKTRACK [label="BackTrack / Auditor / WHAX / GnackTrack / Matriux\n«деды Kali»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    NSTBOX [label="Network Security Toolkit / SELKS / NetSecL\n«сетевая аптечка»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    SECUREBLUE [label="Secureblue\n«приватный десктоп»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    WHONIX [label="Whonix / Kodachi\n«Tor-повседневка»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    KICKSECURE [label="Kicksecure\n«безопасный Debian»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    PHONE [label="GrapheneOS / CalyxOS / LineageOS / /e/ / Ubuntu Touch\n«приватный телефон»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    LIBPHONE [label="Replicant / DivestOS / CopperheadOS / Mobian\n«свободный телефон»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    CUSTOMROM [label="OmniROM / Paranoid / Resurrection\n«кастомные прошивки»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    NONAND [label="Sailfish / KaiOS / Maemo / postmarketOS / Asteroid OS / LuneOS\n«не-Android»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+    NONAND2 [label="MeeGo / Mer / Moblin / Tizen\n«мёртвые мобильные»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    NONAND3 [label="Firefox OS / CyanogenMod / Ubuntu Mobile / Cyanogen OS / MeeGo Harmattan\n«мёртвые мобильные-2»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    OBSCMOB [label="Jlime / OpenZaurus / Emdebian / LEAF\n«КПК и встройка»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    CAINE [label="CAINE / DEFT / Santoku\n«криминалисты»", shape=box, style="filled,rounded", fillcolor="#a5b4fc"];
+  }
+  D4 -> D4a [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D4a -> TAILS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D4a -> D4b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D4b -> QUBES [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D4b -> D4c [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D4c -> KALI [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D4c -> SECUREBLUE [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  TAILS -> LPSBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  TAILS -> LIBERTE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  QUBES -> HEADS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  QUBES -> TORBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  KALI -> PARROT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  KALI -> BACKTRACK [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  PARROT -> BLACKARCH [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BLACKARCH -> ATHENA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BLACKARCH -> NSTBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ATHENA -> BACKBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ATHENA -> NETHUNTER [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  NETHUNTER -> DVULN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  NETHUNTER -> OPHCRACK [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SECUREBLUE -> WHONIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SECUREBLUE -> CAINE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  WHONIX -> KICKSECURE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  WHONIX -> PHONE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  PHONE -> LIBPHONE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  PHONE -> NONAND [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  LIBPHONE -> CUSTOMROM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  NONAND -> NONAND2 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  NONAND2 -> NONAND3 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  NONAND3 -> OBSCMOB [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 5: ТВОРЧЕСТВО =================
+  subgraph cluster_creative {
+    label="ВЕТКА: Творчество";
+    style="filled,rounded"; fillcolor="#fdf2f8"; color="#f472b6"; fontsize=12;
+    D5a [label="Профи +\nесть деньги?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D5b [label="Музыка /\nстудия?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    MACOS [label="macOS\n«дизайнер с кредитом»", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    AVL [label="AV Linux\n«гитарист-звукарь»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    DAPHILE [label="Daphile / AudioPhile / GNUGuitarINUX / Moode / Snakeoil\n«музыка-гики»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    USTUDIO [label="Ubuntu Studio\n«монтажёр»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    FEDORAJAM [label="Fedora Jam / Musix / dyne:bolic\n«музыка»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    MUSTUDIO [label="Dream Studio / ArtistX / DeMuDi / Mediainlinux / 64Studio / Tango Studio / APODIO\n«музыка нулевых»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+  }
+  D5 -> D5a [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D5a -> MACOS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D5a -> D5b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D5b -> AVL [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D5b -> USTUDIO [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  AVL -> DAPHILE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  USTUDIO -> FEDORAJAM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  FEDORAJAM -> MUSTUDIO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 6: РАЗРАБОТКА =================
+  subgraph cluster_dev {
+    label="ВЕТКА: Разработка";
+    style="filled,rounded"; fillcolor="#f0fdf4"; color="#4ade80"; fontsize=12;
+    D6a [label="Терминал —\nдом родной?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D6b [label="Docker / K8s\nстабильно?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    ARCH [label="Arch\n«btw, я использую Arch»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ENDEAVOUR [label="EndeavourOS / Arco / Antergos\n«Arch без боли»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ARCHCRAFT [label="Archcraft\n«Arch сразу красивый»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ARCHFAM [label="ArchBang / ArchLabs / KaOS / Omarchy / BBQLinux / Bridge / Newtoos / KahelOS\n«ещё Arch»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    PACIND [label="Chakra / Frugalware / Hyperbola\n«другой pacman»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    PACBSD [label="PacBSD\n«Arch на FreeBSD»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    NIXOS [label="NixOS / Guix\n«конфиг как код»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    VOID [label="Void / Artix / Obarun\n«без systemd»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    GENTOO [label="Gentoo\n«компилирую ради души»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    CALCULATE [label="Calculate\n«Gentoo для ленивых»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SABAYON [label="Sabayon\n«мёртвый красавчик»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    TOOROX [label="Toorox\n«польский Gentoo-live»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    FUNTOO [label="Funtoo\n«Gentoo от создателя»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    PENTOO [label="Pentoo\n«Gentoo-хакер»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    FEDORA [label="Fedora WS / KDE\n«RedHat-стажёр»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    BLUEFIN [label="Bluefin / Aurora\n«Fedora для разрабов»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SILVERBLUE [label="Silverblue / Kinoite\n«неубиваемая»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    RFREM [label="Russian Fedora / Parsidora / Momonga\n«Fedora по-нашему»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    UBUNTULTS [label="Ubuntu LTS\n«студент-работяга»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    VANILLA [label="Vanilla OS\n«неубиваемая Ubuntu»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    GLINUX [label="gLinux / Goobuntu\n«внутри Google»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+  }
+  D6 -> D6a [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D6a -> ARCH [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D6a -> D6b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D6b -> FEDORA [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D6b -> UBUNTULTS [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  ARCH -> ENDEAVOUR [xlabel="лень?", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ENDEAVOUR -> ARCHCRAFT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ENDEAVOUR -> ARCHFAM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ARCHFAM -> PACIND [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  PACIND -> PACBSD [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ARCH -> NIXOS [xlabel="повтор?", style=dashed, weight=1, color="#0e7490", fontcolor="#0e7490"];
+  NIXOS -> VOID [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  VOID -> GENTOO [xlabel="хардкор?", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  GENTOO -> CALCULATE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  GENTOO -> PENTOO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CALCULATE -> SABAYON [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CALCULATE -> FUNTOO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SABAYON -> TOOROX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  FEDORA -> BLUEFIN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  FEDORA -> RFREM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BLUEFIN -> SILVERBLUE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  UBUNTULTS -> VANILLA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  UBUNTULTS -> GLINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 7: ОФИС / WINDOWS / APPLE =================
+  subgraph cluster_win {
+    label="ВЕТКА: Офис / Windows / Apple";
+    style="filled,rounded"; fillcolor="#eff6ff"; color="#60a5fa"; fontsize=12;
+    D7a [label="Ненавидишь\nобновления?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D7b [label="Госы / ФСТЭК /\nимпортозамещение?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.4, height=1.3];
+    WINLTSC [label="Win 10 LTSC\n«без обновлений»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    TINY11 [label="Tiny11\n«Win11 для слабых ПК»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    WIN11B [label="Win 11 + WSL2\n«и рыбку съесть»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    ASTRA [label="Astra / ALT / ROSA\n«госзаказ (RU)»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    GOVWW [label="GendBuntu / LiMux / Canaima / Pardus / Pisi / Estrella Roja / Progress / VENENUX\n«полиция и мэрии»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    GOVWW2 [label="Maya OS / Bharat OS / Nova / Clip OS / Hanthana / BlankOn / Bayanihan\n«гос-Линуксы мира»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    REDSTAR [label="Red Star OS\n«КНДР одобряет»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    MACOS2 [label="macOS\n«в рассрочку»", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    HACKINTOSH [label="Hackintosh\n«macOS с болью»", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    ASAHI [label="Asahi\n«Linux на M1/M2»", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+  }
+  D7 -> D7b [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D7b -> ASTRA [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D7b -> D7a [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D7a -> WINLTSC [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D7a -> WIN11B [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  WINLTSC -> TINY11 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ASTRA -> GOVWW [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ASTRA -> REDSTAR [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  GOVWW -> GOVWW2 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  D8 -> MACOS2 [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  MACOS2 -> HACKINTOSH [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  MACOS2 -> ASAHI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 8: «ПРОСТО РАБОТАЕТ» =================
+  subgraph cluster_easy {
+    label="ВЕТКА: Просто работает";
+    style="filled,rounded"; fillcolor="#ecfdf5"; color="#34d399"; fontsize=12;
+    D9a [label="С Windows?\nХочешь похоже?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D9b [label="Ноут новый?\nNVIDIA / Wi-Fi?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D9c [label="Красота\nважнее всего?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    MINT [label="Mint Cinnamon / Edge\n«без сюрпризов»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ZORIN [label="Zorin Core\n«Windows, но Linux»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    XPCLONES [label="Linux XP / Winux / Redmond / RoboLinux\n«XP-клоны»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    RHINO [label="Rhino Linux\n«Ubuntu, но rolling»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    MANDR [label="Mageia / OpenMandriva / PCLinuxOS / Conectiva / Granular / ComFusion / Mandrake / Unity Linux\n«семья Mandriva»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    FEDORAKDE [label="Fedora KDE / Ultramarine\n«свежее и стабильно»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ELEMENTARY [label="elementary OS\n«хипстер»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    DEEPIN [label="Deepin\n«красота из Китая»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ELIVE [label="Elive / Rxart\n«красота»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    PEARBOX [label="Pear OS / Makulu / WattOS / Ulteo / MoonOS / Peach OSI / Sn0wL1nuX / SymphonyOS\n«красивые»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    UBUNTU [label="Ubuntu / Kubuntu\n«дефолт для всех»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    UFLAVOURS [label="Budgie / MATE / Cinnamon / Kylin / Unity / Mythbuntu / neon / Maui\n«вкусы Ubuntu»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    TUXEDO [label="TUXEDO OS\n«для ноутов»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    OPENSUSE [label="openSUSE Leap / Tumbleweed\n«порядок + YaST»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    GECKO [label="GeckoLinux\n«openSUSE для людей»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    KIWI [label="Kiwi\n«конструктор образов»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SOLUS [label="Solus / Endless\n«маме и школьнику»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    EDUBUNTU [label="Edubuntu\n«детям учиться»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    DOUDOU [label="DoudouLinux / PrimTux / Qimo / Phinx / Patinho / Leeenux / TEENpup\n«малышам»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    LLX1 [label="LliureX / MAX / Molinux / Linex / Jarro Negro / Linkat\n«школы Испании»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    LLX2 [label="LinuxTLE / Linux Caixa / Kurumin / Guadalinex / K12LTSP / K-DEMar / Lihuen / SuliX\n«школы мира»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    NICHE [label="Poseidon / Sabily / Vinux / UberStudent / Uncom / Ubuntu CE / VINUX\n«нишевые»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SKOLE [label="Skolelinux\n«школьный Debian»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SERPENT [label="Serpent OS / Evolve OS\n«проекты Ikey»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    CHROMEFLEX [label="ChromeOS Flex / FydeOS\n«браузер = ОС»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    GALLIUM [label="GalliumOS\n«Linux на Chromebook»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    CHROMEOS [label="ChromeOS / ChromiumOS / CloudReady / NayuOS\n«хромобук из коробки»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    ANDROIDX86 [label="Android-x86 / Remix OS / Fire OS\n«Android на ПК»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+  }
+  D9 -> D9a [xlabel="просто", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D9a -> MINT [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D9a -> D9b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D9b -> FEDORAKDE [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D9b -> D9c [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D9c -> ELEMENTARY [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D9c -> UBUNTU [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  MINT -> ZORIN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  MINT -> RHINO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  MINT -> MANDR [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ZORIN -> XPCLONES [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  UBUNTU -> OPENSUSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  UBUNTU -> TUXEDO [xlabel="ноут?", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  UBUNTU -> SOLUS [xlabel="нуб?", style=dashed, weight=1, color="#0e7490", fontcolor="#0e7490"];
+  UBUNTU -> UFLAVOURS [xlabel="вкус?", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OPENSUSE -> GECKO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  GECKO -> KIWI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ELEMENTARY -> DEEPIN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ELEMENTARY -> ELIVE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ELIVE -> PEARBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SOLUS -> EDUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SOLUS -> SERPENT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  EDUBUNTU -> CHROMEFLEX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  EDUBUNTU -> DOUDOU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  EDUBUNTU -> SKOLE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DOUDOU -> LLX1 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DOUDOU -> NICHE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  LLX1 -> LLX2 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CHROMEFLEX -> GALLIUM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CHROMEFLEX -> CHROMEOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  GALLIUM -> ANDROIDX86 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 9: DIY =================
+  subgraph cluster_diy {
+    label="ВЕТКА: Настроить всё сам";
+    style="filled,rounded"; fillcolor="#fff7ed"; color="#fb923c"; fontsize=12;
+    D9d [label="Готов читать\nWiki ночами?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D9e [label="Неубиваемая\nсистема?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    ARCH2 [label="Arch / EndeavourOS\n«читай Wiki»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    MANJARO [label="Manjaro\n«для ленивых»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    NETRUNNER [label="Netrunner\n«KDE-легенда»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    NIXOS2 [label="NixOS\n«откат в 1 этап»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SLACK [label="Slackware / Gentoo / Void\n«олдфаг»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SLAKFAM [label="Slax / Porteus / Salix / Zenwalk / Vector / Absolute / AgiliaLinux / Plamo\n«Slackware для людей»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    DEADSLACK [label="KateOS / NimbleX / Platypux / ZipSlack / Jurix / Bluewhite64 / GoblinX\n«мёртвые слаки»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    DRACO [label="Draco\n«Slackware на BSD»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    CRUXBOX [label="CRUX / Kwort\n«собери сам»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SRCBOX [label="LFS / Source Mage / GoboLinux / Sorcerer\n«совсем сам»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SRCBOX2 [label="T2 / Exherbo / AryaLinux / Lunar / NuTyX\n«совсем сам-2»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    INDBOX [label="Bedrock / Dragora / Clear Linux\n«независимые»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    OBSCIND [label="paldo / Foresight / MkLinux / rPath / Yoper\n«покойники»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    DEBIAN [label="Debian Testing / LMDE\n«деду пофиг»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    SPIRAL [label="SpiralLinux\n«Debian без боли»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    LIBRE1 [label="Trisquel / PureOS / Parabola\n«свободные»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    LIBRE2 [label="gNewSense / Ututo / Uruk / Gobuntu / BLAG\n«свободные-2»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    OBSCDEB [label="Ageless / SolydXK / Parsix / HandyLinux / NepaLinux / Sunwah / Libranet / Webconverger / Point Linux\n«кладбище Debian»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    PROG [label="Progeny / Stormix\n«пионеры Debian»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    KFREEBSD [label="GNU/kFreeBSD / GNU/NetBSD / Nexenta\n«франкенштейны»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    SIDBOX [label="siduction / aptosid / Rebellin / Tanglu\n«дебиан-экстрим»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+  }
+  D9 -> D9d [xlabel="сам", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D9d -> ARCH2 [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D9d -> MANJARO [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  MANJARO -> NETRUNNER [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ARCH2 -> D9e [xlabel="поставил", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D9e -> NIXOS2 [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D9e -> SLACK [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  SLACK -> DEBIAN [xlabel="устал?", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SLACK -> SLAKFAM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SLACK -> CRUXBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SLAKFAM -> DEADSLACK [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SLAKFAM -> DRACO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  CRUXBOX -> SRCBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SRCBOX -> SRCBOX2 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SRCBOX2 -> INDBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  INDBOX -> OBSCIND [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DEBIAN -> SPIRAL [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SPIRAL -> LIBRE1 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SPIRAL -> KFREEBSD [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SPIRAL -> SIDBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  LIBRE1 -> LIBRE2 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  LIBRE2 -> OBSCDEB [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OBSCDEB -> PROG [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  // ================= ВЕТКА 10: ЭКЗОТИКА =================
+  subgraph cluster_exotic {
+    label="ВЕТКА: Экзотика / ретро";
+    style="filled,rounded"; fillcolor="#f9fafb"; color="#9ca3af"; fontsize=12;
+    D10 [label="Экзотика /\nретро?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+    D10a [label="Приставка /\nэмуляторы?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D10b [label="Ностальгия\nпо XP?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    D10c [label="ОС ради фана /\nс нуля?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    BATOCERA [label="Batocera / Lakka\n«приставка из флешки»", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    PS2LINUX [label="Linux for PS2 / Buffalo / Red Ribbon\n«линукс на плойке»", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    COMMODORE [label="Commodore OS\n«C64 жив»", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    REACTOS [label="ReactOS\n«XP восстал»", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    FREEDOS [label="FreeDOS\n«DOS жив!»", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    BSDSTUFF [label="FreeBSD / OpenBSD / NetBSD\n«запустится на тостере»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    GHOSTBSD [label="GhostBSD\n«BSD с лицом»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    MIDBSD [label="MidnightBSD / NomadBSD / TrueOS / DesktopBSD\n«десктопные BSD»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    FUGU [label="FuguIta / MirOS\n«OpenBSD-лайв»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    DRAGONFLY [label="DragonFly BSD\n«BSD для умников»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    TAHOE [label="BSDTahoe\n«BSD из 1991»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    ILLUMOS [label="OpenIndiana / OmniOS / SmartOS\n«Solaris жив»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    SERENITY [label="SerenityOS\n«ОС с нуля»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    NINEFRONT [label="9front\n«Plan 9 для упоротых»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    HAIKU [label="Haiku\n«BeOS из 90-х»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    HISTBOX [label="MCC / Softlanding / Yggdrasil\n«деды (1992)»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    HIST2A [label="Corel / MEPIS / CrunchBang / Kanotix / BLAG / ASPLinux / Aurox\n«нулевые»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    HIST2B [label="Fuduntu / Dreamlinux / OpenGEU / Pinguy / Sun JDS\n«десятые»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    HIST3 [label="Caldera / Turbolinux / Vine / Red Hat / SCO\n«деды RPM»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    PPCBOX [label="LinuxPPC / MintPPC / Slackintosh\n«линукс на PowerPC»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    BUNSEN [label="BunsenLabs / CrunchBang++\n«наследники #!»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    XANDROS [label="Xandros / Linspire / Lindows / Freespire / Lycoris\n«нулевые-коммерция»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+  }
+  // Только 2 коротких входа снизу (из соседних веток), длинных диагоналей больше нет
+  OPENSUSE -> D10 [xlabel="не зашло?", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  DEBIAN -> D10 [xlabel="скучно?", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D10 -> D10a [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D10 -> BSDSTUFF [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D10 -> HISTBOX [xlabel="музей?", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  HISTBOX -> HIST2A [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  HISTBOX -> PPCBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  HIST2A -> HIST2B [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  HIST2A -> BUNSEN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  HIST2A -> XANDROS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  HIST2B -> HIST3 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  D10a -> BATOCERA [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D10a -> D10b [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D10b -> REACTOS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D10b -> D10c [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D10c -> SERENITY [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  D10c -> HAIKU [xlabel="нет", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  BATOCERA -> PS2LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BATOCERA -> COMMODORE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  REACTOS -> FREEDOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BSDSTUFF -> GHOSTBSD [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BSDSTUFF -> DRAGONFLY [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BSDSTUFF -> ILLUMOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  GHOSTBSD -> MIDBSD [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  GHOSTBSD -> FUGU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DRAGONFLY -> TAHOE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  SERENITY -> NINEFRONT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+
+  FINISH [label="ФИНИШ:\nставь и не ной\n(бэкап сделай!)", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=13, width=2.4, height=1.1];
+  HAIKU -> FINISH [weight=2];
+  BSDSTUFF -> FINISH [weight=1];
+  BATOCERA -> FINISH [weight=0, style=dashed];
+  REACTOS -> FINISH [weight=0, style=dashed];
+
+  // ============ ВЕРТИКАЛЬНАЯ УКЛАДКА: кластеры друг под другом ============
+  // Невидимые рёбра с большим весом задают порядок:
+  // D1, гейминг, D2, железо, D3, сервер, D4, приватность, D5, творчество,
+  // D6, разработка, D7, офис, D9, просто/сам, D10, экзотика, ФИНИШ.
+  // Сами рёбра не рисуются, влияют только на ранги.
+  GARUDA -> D2 [style=invis, weight=100];
+  ATLAS -> D2 [style=invis, weight=100];
+  SPARKY -> D3 [style=invis, weight=100];
+  KOLIBRI -> D3 [style=invis, weight=100];
+  COYOTE -> D4 [style=invis, weight=100];
+  OPENBSD -> D4 [style=invis, weight=100];
+  OBSCMOB -> D5 [style=invis, weight=100];
+  CUSTOMROM -> D5 [style=invis, weight=100];
+  MUSTUDIO -> D6 [style=invis, weight=100];
+  DAPHILE -> D6 [style=invis, weight=100];
+  TOOROX -> D7 [style=invis, weight=100];
+  GLINUX -> D7 [style=invis, weight=100];
+  ASAHI -> D9 [style=invis, weight=100];
+  GOVWW2 -> D9 [style=invis, weight=100];
+  PROG -> D10 [style=invis, weight=100];
+  OBSCIND -> D10 [style=invis, weight=100];
+  ANDROIDX86 -> D10 [style=invis, weight=100];
+  LLX2 -> D10 [style=invis, weight=100];
+  NETRUNNER -> D10 [style=invis, weight=100];
+
+  // Легенда
+  subgraph cluster_legend {
+    label="Легенда: 450+ систем | ромб = if/else | прямоугольник = ответ | тёмная = да/нет | бирюзовая = «или» | серая = мёртвые легенды";
+    style="filled,rounded"; fillcolor="#f9fafb"; color="#9ca3af"; fontsize=11;
+    L1 [label="ромб =\nвопрос", shape=diamond, style=filled, fillcolor="#fef08a", fontsize=10, width=1.6, height=1.0];
+    L2 [label="прямоугольник =\nдистрибутив", shape=box, style="filled,rounded", fillcolor="#86efac", fontsize=10];
+    L3 [label="овал =\nстарт/финиш", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=10];
+  }
+}

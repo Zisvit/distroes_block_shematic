@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0c29">
+        <animate attributeName="stop-color" values="#0f0c29;#302b63;#24243e;#0f0c29" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#302b63">
+        <animate attributeName="stop-color" values="#302b63;#24243e;#0f0c29;#302b63" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#24243e">
+        <animate attributeName="stop-color" values="#24243e;#0f0c29;#302b63;#24243e" dur="8s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5a0"/>
+      <stop offset="50%" stop-color="#00d9f5"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="100%;200%;100%" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="220" rx="18" fill="url(#bg)"/>
+  <g filter="url(#glow)">
+    <text x="450" y="95" text-anchor="middle" font-family="DejaVu Sans,Segoe UI,sans-serif" font-size="46" font-weight="800" fill="url(#title)">ОС-Блок-схема</text>
+  </g>
+  <text x="450" y="135" text-anchor="middle" font-family="DejaVu Sans,Segoe UI,sans-serif" font-size="18" fill="#cbd5e1">if/else по 198 дистрибутивам · 37 ромбов · ~490 имён</text>
+  <g>
+    <circle cx="120" cy="180" r="6" fill="#00f5a0">
+      <animate attributeName="r" values="6;10;6" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="180" r="6" fill="#00d9f5">
+      <animate attributeName="r" values="6;10;6" dur="1.9s" begin="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.9s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="180" r="6" fill="#a855f7">
+      <animate attributeName="r" values="6;10;6" dur="2.2s" begin="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="540" cy="180" r="6" fill="#f59e0b">
+      <animate attributeName="r" values="6;10;6" dur="1.7s" begin="0.9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.7s" begin="0.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="680" cy="180" r="6" fill="#ef4444">
+      <animate attributeName="r" values="6;10;6" dur="2.0s" begin="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="2.0s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="820" cy="180" r="6" fill="#22c55e">
+      <animate attributeName="r" values="6;10;6" dur="1.8s" begin="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.8s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <text x="450" y="205" text-anchor="middle" font-family="DejaVu Sans,Segoe UI,sans-serif" font-size="12" fill="#64748b">Linux · BSD · illumos · Haiku · ReactOS · FreeDOS · …</text>
+</svg>

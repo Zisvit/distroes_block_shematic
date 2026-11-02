@@ -1,0 +1,398 @@
+{{Short description|none}}
+
+{{Dynamic list|multiple=yes}}
+There are several [[Unix-like|Unix-like operating systems]] under active development that are descended from the [[Berkeley Software Distribution]], a series of [[Unix|UNIX]] variants developed by the [[Computer Systems Research Group]] at the [[University of California, Berkeley]].
+
+== History ==
+{{Main article|Berkeley Software Distribution}}
+
+BSD was originally derived from Unix, using the complete source code for [[Version 6 Unix|Sixth Edition Unix]] for the [[PDP-11]] from [[Bell Labs]] as a starting point for the First Berkeley Software Distribution, or ''1BSD''. A series of updated versions for the PDP-11 followed (the 2.xBSD releases). A [[32-bit]] version for the [[VAX]] platform was released as 3BSD, and the 4.xBSD series added many new features, including [[TCP/IP]] networking.
+
+For many years, the primary developer and project leader was [[Bill Joy]], who was a graduate student at the time; funding for this project was provided by [[DARPA]].  DARPA was interested in obtaining a programming platform and programmer's interface which would provide a robust, general purpose, time-sharing computing platform which would not become obsolete every time computing hardware was or is replaced.  Such an operating system would allow [[United States Department of Defense|US Department of Defense]] software, especially for intricate, long-term finance and logistics operations, to be quickly ported to new hardware as it became available.
+
+As time went on, code was later ported both from and to [[UNIX System III|Unix System III]] and still later [[UNIX System V|Unix System V]]. Unix System V Revision 4 ([[SVR4]]), released circa 1992, contained much code which was ported from BSD version up to and including 4.3BSD.
+
+== BSD distributions ==
+Since the early 2000s, BSD has grown into a family of derivatives—each refining, removing, or adding features while staying largely compatible with [[FreeBSD]], [[NetBSD]], or [[OpenBSD]].
+
+=== FreeBSD-based ===
+[[FreeBSD]] is a free Unix-like operating system descended from AT&T UNIX via the Berkeley Software Distribution (BSD). FreeBSD currently has more than 200 active developers and thousands of contributors. Other notable derivatives include [[DragonFly BSD]], which was forked from FreeBSD 4.8, and [[Apple Inc.]]'s [[macOS]], with its [[Darwin (operating system)|Darwin]] base including a large amount of code derived from FreeBSD.
+{| class="wikitable sortable"
+|-
+! Name !! Description
+|-
+| ClonOS<ref>{{cite web |url=https://clonos.tekroutine.com/ |title=Free Open-Source Hosting Platform ClonOS |access-date=28 September 2016 }}</ref>
+| Offers a complete web UI for easily controlling, deploying and managing FreeBSD jails, containers and Bhyve/Xen hypervisor virtual environments
+|-
+| [[DragonFly BSD]]
+| Originally [[Fork (software development)|forked]] from FreeBSD 4.8, now developed in a different direction
+|-
+| [[TrueNAS]]
+| Previously known as FreeNAS
+|-
+| [[GhostBSD]]
+| GhostBSD is a FreeBSD OS distro oriented for desktops and laptops. Its goal is to combine the stability and security of FreeBSD with [[OpenRC]], OS packages and Mate graphical user interface. GhostBSD comes as livecd for users to test before installing.
+|-
+| HardenedBSD
+| HardenedBSD is a security-enhanced fork of FreeBSD. The HardenedBSD Project is implementing many exploit mitigation and security technologies on top of FreeBSD.
+|-
+| helloSystem
+| A desktop system for creators that focuses on simplicity, elegance, and usability
+|-
+| [[Junos OS]]
+| For Juniper routers
+|-
+| [[MidnightBSD]]
+| Midnight BSD forked from FreeBSD 6.1 Beta.
+|-
+| [[XigmaNAS]]
+| Previously known as NAS4Free, is a network-attached storage (NAS) server software. It is a continuation of the original [[FreeNAS]] code. 
+|-
+| [[NomadBSD]]
+| Persistent live system for USB flash drives
+|-
+| [[OPNsense]]
+| OPNsense is a FreeBSD-based firewall tailored for use as a firewall and router that was forked from pfSense.
+|-
+| [[pfSense]]
+| pfSense is a FreeBSD-based firewall tailored for use as a firewall and router.
+|-
+| [[CellOS]]
+| The PlayStation 3 operating system
+|-
+| [[Orbis OS]]
+| The PlayStation 4 operating system
+|-
+| Zrouter
+| FreeBSD based firmware for embedded devices
+|-
+| ULBSD
+| ULBSD is a Unix-like, desktop-oriented operating system based on FreeBSD. It aims to be easy to install and ready-to-use immediately by providing pre-installed graphical KDE6 user desktop environment.
+|-
+| [[AskoziaPBX]]
+| Discontinued<ref name="FreeBSD News Discontinued">{{cite web |url=http://www.freebsdnews.net/2010/01/12/updated-fbsd-based-projects-and-systems-pag/ |title=Updated: FBSD based Projects and Systems page |publisher=FreeBSD News |date=2010-01-12 |access-date=2014-02-16 |archive-date=2013-12-12 |archive-url=https://web.archive.org/web/20131212174547/http://www.freebsdnews.net/2010/01/12/updated-fbsd-based-projects-and-systems-pag/ |url-status=dead }}</ref>
+|-
+| BSDBox
+| Discontinued
+|-
+| BSDeviant
+| Discontinued
+|-
+| BSDLive
+| Discontinued
+|-
+| Bzerk CD
+| Discontinued
+|-
+| ClosedBSD
+| Discontinued
+|-
+| [[DesktopBSD]]
+| Discontinued.<ref name="FreeBSD News Discontinued" /> Was a desktop-oriented FreeBSD variant using [[K Desktop Environment 3|K Desktop Environment 3.5]].
+|-
+| EclipseBSD
+| Discontinued
+|-
+| Evoke
+| Discontinued. Formerly ''DamnSmallBSD''; a small live FreeBSD environment geared toward developers and system administrators.<ref>{{cite web|url=https://code.google.com/p/evoke/ |title=evoke - Formerly DamnSmallBSD - Google Project Hosting |date= |access-date=2014-02-16}}</ref>
+|-
+| FenestrOS BSD
+| Discontinued
+|-
+| FreeBSDLive
+| Discontinued
+|-
+| FreeBSD LiveCD
+| Discontinued
+|-
+| [[FreeSBIE]]
+| Discontinued
+|-
+| Frenzy Live CD
+| Discontinued. A "portable system administrator toolkit". It generally contains software for hardware tests, file system check, security check and network setup and analysis.
+|-
+| FuryBSD<ref>{{cite web|url=https://www.furybsd.org/|title=A Powerful, Portable, FreeBSD Desktop|access-date=6 July 2020}}</ref>
+| Discontinued in 2020. Paid homage to desktop BSD projects of the past like PC-BSD and TrueOS with its graphical interface and adds additional tools like a live, hybrid USB / DVD image.
+|-
+| [[Debian GNU/kFreeBSD]]
+| Discontinued<ref>{{cite mailing list|url=https://lists.debian.org/debian-devel-announce/2014/11/msg00005.html|title=Release Team Sprint Results|date=2014-11-09|mailing-list=debian-devel-announce|first=Jonathan|last=Wiltshire}}</ref>
+|-
+| [[GNU variants#BSD variants|Ging]]
+| Discontinued
+|-
+| [[Gentoo/Alt#Gentoo/FreeBSD|Gentoo/FreeBSD]]
+| Discontinued. Gentoo/*BSD was a subproject to port Gentoo features such as Portage to the FreeBSD operating system.
+|-
+| GuLIC-BSD
+| Discontinued
+|-
+| HamFreeSBIE
+| Discontinued
+|-
+| HeX
+| Discontinued
+|-
+| [[IronPort]] AsyncOS
+| Discontinued. security appliances
+|-
+| miniBSD
+| Discontinued
+|-
+| [[m0n0wall]]
+| Discontinued.<ref>{{citation|title=m0w0wall discontinued 2014}}</ref> Successor is [[OPNsense]]. m0n0wall was an embedded firewall distribution of FreeBSD, one of the BSD operating system descendants. It provided a small image which can be put on Compact Flash cards as well as on CDROMs and hard disks. It ran on a number of embedded platforms and generic PCs. 
+|-
+| NetBoz
+| Discontinued
+|-
+| [[Nokia]] IPSO
+| Discontinued. Nokia IP security appliances
+|-
+| [[PacBSD]]<ref>{{cite web|url=https://www.pacbsd.org/|title=PacBSD : Homepage : A simple, lightweight distribution|publisher=Archbsd.net|access-date=17 November 2014|archive-date=29 January 2018|archive-url=https://web.archive.org/web/20180129195131/https://www.pacbsd.org/|url-status=dead}}</ref>
+| Discontinued. A lightweight operating system that aimed to bring the flexibility and philosophy of [[Arch Linux]] to BSD-based operating systems. The Project has been inactive since 2017.
+|-
+| Paxym
+| Discontinued. FreeBSD for [[Cavium|Cavium Networks]] OCTEON
+|-
+| [[PicoBSD]]
+| Discontinued
+|-
+| RelaxBSD
+| Discontinued
+|-
+| RoFreeSBIE
+| Discontinued
+|-
+| Snarl
+| Discontinued
+|-
+| The Dark Star
+| Discontinued
+|-
+| TheWall
+| Discontinued
+|-
+| ThinBSD
+| Discontinued
+|-
+| Triance OS
+| Discontinued
+|-
+| TrueBSD
+| Discontinued
+|-
+| [[TrueOS]]
+| Discontinued. TrueOS (formerly PC/BSD) was a Unix-like, desktop-oriented operating system based on FreeBSD based on ZFS boot-environments, [[Lumina (desktop environment)]], and the sysadm administration framework; reinvented as Trident OS on top of Void Linux, retained many BSD aesthetics. 
+|-
+| [[TrustedBSD]]
+| Discontinued. Many of its extensions were integrated into FreeBSD. Only activity on trustedbsd-discuss mailing list is spam (as of 2020-12-22).
+|-
+| WarBSD
+| Discontinued
+|-
+| WiBSD
+| Discontinued
+|-
+| WiFiBSD
+| Discontinued
+|-
+| [[XORP]]
+| Discontinued
+|-
+|[[History of the Berkeley Software Distribution|BSDTahoe]]
+|BSD 4.3 Tahoe for VAX
+|-
+|ravynOS (formerly airyxOS)
+|ravynOS was a FreeBSD-based OS aimed at providing "the finesse of macOS", however it has moved to a Darwin base instead.
+|
+|}
+
+=== NetBSD-based ===
+[[NetBSD]] is a freely redistributable, open source version of the Unix-derivative Berkeley Software Distribution (BSD) computer operating system. It was the second open source BSD descendant to be formally released, after 386BSD, and continues to be actively developed. Noted for its portability and quality of design and implementation, it is often used in embedded systems and as a starting point for the porting of other operating systems to new computer architectures.
+
+{| class="wikitable sortable"
+|-
+!   Name   !! Description
+|-
+| BlackBSD<ref>{{cite web|url=https://github.com/betounix/BlackBSD|title=BlackBSD Github repository |date=18 May 2013 |access-date=2025-02-09}}</ref>
+| Discontinued. BlackBSD was a NetBSD-based Live CD, with security tools on it and fluxbox as a window manager
+|-
+| EdgeBSD<ref>{{cite web|url=http://www.edgebsd.org/|title=The EdgeBSD Project: About EdgeBSD|publisher=Edgebsd.org|access-date=17 November 2014|archive-date=25 November 2020|archive-url=https://web.archive.org/web/20201125221046/https://www.edgebsd.org/|url-status=dead}}</ref>
+| Discontinued. NetBSD [[fork (software development)|fork]] with main goal to be more modern in some aspects than NetBSD itself. Its most noticeable differences were back-committed to the main project.
+|-
+| fdgw<ref>{{cite web|url=https://www.fml.org/software/fdgw/ |title=fdgw is one floppy NetBSD. |publisher=Ken'ichi Fukamachi - FML.ORG |access-date=8 February 2025}}</ref><ref>{{cite web|url=https://github.com/user340/fdgw2 |title=fdgw Github repository |date=6 June 2017 |access-date=8 February 2025}}</ref>
+| fdgw is a tool kit to build a minimal NetBSD bootable disk, with a primary focus on routers.
+|-
+| Force10 Networks FTOS<ref>{{cite web|url=https://www.netsolutionworks.com/Force10/OS/Force10-FTOS.asp |title=Dell Force10 Operating System |publisher=NetSolutionsWorks |access-date=8 February 2025}}</ref>
+| Powerful and robust operating system that runs on Force10 TeraScale E-Series switches/routers.
+|-
+| SEIL/SMFv2<ref>{{cite web|url=https://dev.smf.jp/|title=SMF developer site}}</ref><ref>{{cite web|url=https://github.com/seil-smf |title=SEIL/SMF Github page}}</ref>
+| The software framework used by [[Internet Initiative Japan, Inc. | IIJ]]'s SEIL/X CPE routers, built on NetBSD.
+
+|-
+| g4u<ref>{{cite web |url=https://www.feyrer.de/g4u/ |title=g4u - Harddisk Image Cloning for PCs |access-date=2025-01-06}}</ref>
+| NetBSD-based bootfloppy/CD-ROM that allows easy cloning of PC harddisks.
+|-
+| [[Debian GNU/NetBSD]]
+| Debian GNU/NetBSD was a project to combine Debian with the kernel of NetBSD. It was abandoned in 2002 and has not seen active maintenance ever since.
+|-
+| [[Gentoo/NetBSD]]
+| Discontinued. Gentoo/*BSD was a subproject to port Gentoo features such as Portage to the NetBSD operating system.
+|-
+| irBSD<ref>{{cite web |url=https://irbsd.net/ |title=irBSD |publisher=PCLITE Official |archive-date=17 November 2018 |archive-url=https://web.archive.org/web/20181117030356/https://pclite.net/page/irbsd |url-status=dead }}</ref>
+| Discontinued. irBSD was a digital forensics kit based on the NetBSD operating system, designed for cryptography, penetration testing, data recovery, reverse engineering, privacy protection and other security tasks.
+|-
+| Jibbed<ref>{{cite web |url=https://www.jibbed.org/ |title=Jibbed: A live USB stick for NetBSD |access-date=2025-04-14}}</ref>
+| Live CD based on NetBSD
+|-
+| NetBSD/i386 Firewall<ref>{{cite web |url=http://firewall.dubbele.com/index.html |title=Welcome to the NetBSD/i386 Firewall Project |access-date=2025-02-09}}</ref>
+| Inactive. A free firewall solution based on NetBSD and targeting i386 devices.
+|-
+| OS108<ref>{{cite web |url=https://os108.org/ |title=A fast, open and Secure desktop Operating System based on NetBSD |date=2020-11-13 |access-date=2021-08-02}}</ref>
+| OS108 is a desktop-oriented operating system based on NetBSD.
+|-
+| PolyBSD / pocketSAN<ref>{{cite web |url=https://www.tdisecurity.com/labs/polybsd-pocketsan-pocketvpn/ |title=NetBSD on embedded devices - turning USB thumb-drives into VPNs. |access-date=2025-01-06}}</ref>
+| Multipurpose framework for building embedded systems based on NetBSD.
+|-
+| SEOS<ref>{{cite web |url=https://wiki.wireshark.org/RedBack |title=RedBack Smartedge pcap format |work=Wireshark Wiki |access-date=2025-04-14}}</ref>
+| The operating system for the [[Ericsson]] SmartEdge router series
+|-
+| smolBSD<ref>{{cite web |url=https://smolbsd.org/ |title=smolBSD: make your own BSD UNIX MicroVM |access-date=2025-01-06}}</ref>
+| System creation tool based on NetBSD, primarily aimed at building modern, lightweight, fast micro VMs.
+|}
+
+=== OpenBSD-based ===
+[[OpenBSD]] is a Unix-like computer operating system descended from Berkeley Software Distribution (BSD), a Unix derivative developed at the University of California, Berkeley. It was forked from NetBSD in 1995. OpenBSD includes a number of security features absent or optional in other operating systems and has a tradition of developers auditing the source code for software bugs and security problems.
+
+{| class="wikitable sortable"
+|-
+!   Name   !! Description
+|-
+| ÆrieBSD
+| OpenBSD [[fork (software development)|fork]] which tends to be free from GPL-licensed software.<ref>{{Cite web|url=http://aeriebsd.org/about.html|title=AerieBSD|archive-url=https://web.archive.org/web/20150502122433/http://aeriebsd.org/about.html|archive-date=2015-05-02|url-status=dead|access-date=2016-05-16}}</ref>
+|-
+| [[adJ]]
+| Distribution of OpenBSD for Spanish speakers,<ref>{{cite web|url=http://aprendiendo.pasosdejesus.org/ |title=Novedades |publisher=Aprendiendo.pasosdejesus.org |date= |access-date=2014-02-16}}</ref> since 2005 new versions are released around 3 months after OpenBSD's releases, source in GitHub,<ref>{{cite web|url=https://github.com/pasosdeJesus/adJ |title=pasosdeJesus/adJ · GitHub |publisher=Github.com |date= |access-date=2014-02-16}}</ref> to learn how to install there is a challenge  with badge on P2PU<ref>{{cite web|author= |url=https://p2pu.org/es/groups/openbsd-adj-como-sistema-de-escritorio/ |title=Reto: adJ como sistema operativo de escritorio |language=es |publisher=P2PU |date= |access-date=2014-02-16}}</ref>
+|-
+| [[Anonym.OS]]
+| Discontinued.
+|-
+| [[Bitrig]]<ref>{{cite web|url=https://www.bitrig.org|title=Bitrig|publisher=Bitrig.org|access-date=17 November 2014}}</ref>
+| Discontinued.<ref>{{cite web|author= |url=https://github.com/bitrig/bitrig/wiki/Faq |title=Faq 路 bitrig/bitrig Wiki 路 GitHub |publisher=Github.com |date=2013-10-04 |access-date=2014-02-16}}</ref> Was an OpenBSD [[fork (software development)|fork]] with main goal to be more modern in some aspects than OpenBSD. 
+|-
+| BowlFish
+| Customized OpenBSD installation script for embedded systems, intended to make OpenBSD fit into small media like compact flash cards.
+|-
+| BSDanywhere
+| Live CD featuring the [[Enlightenment (software)|Enlightenment]] DR17 window manager
+|-
+| ComixWall
+| A firewall with UTM features. Discontinued 2009 in place for UTMFW<ref>{{cite web|url=https://sites.google.com/site/comixwall |title=ComixWall |access-date=2024-11-27}}</ref>
+|-
+| ekkoBSD
+| ekkoBSD was a Unix-like operating system based on OpenBSD 3.3, also incorporating code from other BSD-like operating systems. Its focus was on security and easy administration.
+|-
+| EmBSD
+|
+|-
+| FabBSD
+| OpenBSD [[fork (software development)|fork]] with main application in CNC field. It is almost inactive.
+|-
+| [[:ja:河豚板|FuguIta]]
+| Providing both LiveDVD and LiveUSB for i386/amd64/arm64. Highly customizable by user. Tracking errata on OpenBSD-stable.
+|-
+| [[Gentoo/OpenBSD]]
+| Gentoo/*BSD was a subproject to port Gentoo features such as Portage to the OpenBSD operating system.
+|-
+|[[HyperbolaBSD]]
+|Under development.  Lightweight distribution focused on freedom.
+|-
+| LibertyBSD
+| Discontinued. Fork of OpenBSD with all non-free binaries removed.
+|-
+| LiveCD OpenBSD
+| LiveCD OpenBSD is sister project of LiveUSB-OpenBSD and this gives users a Live CD/DVD bootable distribution where the user gets to experience OpenBSD without installing to disk. There are 3 flavors, one with XFCE, one with MATE desktop and one with KDE.
+|-
+| LiveUSB OpenBSD
+| LiveUSB OpenBSD is a project started around 2009 for creating OpenBSD based bootable USB flash images. There are 3 variants, one with Gnome, a minimal text only version and an XFCE desktop image.
+|-
+| MarBSD
+| LiveCD of OpenBSD
+|-
+| MicroBSD
+| Fork of the UNIX-like BSD operating system descendant OpenBSD 3.0, begun in July 2002. The project's objective to produce a free and fully secure, complete system, but with a small footprint.
+|-
+| [[MirOS BSD]]
+| Core system based mostly on OpenBSD and some NetBSD code for 32-bit i386 and SPARC, updated via infrequent snapshots and by following "current". Additional packages via MirPorts and pkgsrc are no longer updated.
+|-
+| OliveBSD<ref>{{cite web|url=http://distrowatch.com/table.php?distribution=olivebsd|title=DistroWatch.com: OliveBSD|author=DistroWatch|publisher=Distrowatch.com|access-date=17 November 2014}}</ref>
+| Was a live CD originally based on OpenBSD 3.8
+|-
+| PsygNAT
+| Firewall and NAT router tool
+|-
+| Quetzal<ref>{{cite web|url=http://quetzal.matem.unam.mx/ |title=Quetzal::BSD Home Page |author=Micho Durdevich |access-date=17 November 2014 |url-status=dead |archive-url=https://web.archive.org/web/20110512215811/http://quetzal.matem.unam.mx/ |archive-date=May 12, 2011 }}</ref>
+| Was a live DVD/CD system, based on OpenBSD
+|-
+|SecBSD
+|OS for cybersecurity professionals, ethical hackers, and penetration testers. Comparable to Kali Linux.
+|-
+| SONaFR
+| SONaFR is a small system with router/NAT/firewalling capabilities that fits on a single floppy.
+|-
+| UTMFW
+| Successor of ComixWall, a firewall with UTM features 
+|}
+
+=== Legacy BSD distributions ===
+{| class="wikitable"
+|+
+!Name
+!Description
+|-
+|RetroBSD
+|RetroBSD is a port of [[BSD|2.11BSD]] Unix intended for embedded systems with fixed memory mapping. The current target is the Microchip [[PIC microcontrollers#PIC32M MIPS-based line|PIC32MX]] microcontroller with 128 kbytes of RAM and 512 kbytes of Flash.<ref>{{Cite web |last=RetroBSD |title=Home |url=https://github.com/RetroBSD/retrobsd/wiki/Home |access-date=2026-08-29 |website=GitHub |language=en}}</ref>
+|-
+|DiscoBSD
+|DiscoBSD is an independent continuation of RetroBSD that also supports [[STM32#STM32_F4|STM32F4]] ARM devices.<ref>{{Cite web |title=DiscoBSD |url=http://www.discobsd.org/ |access-date=2026-08-29 |website=www.discobsd.org}}</ref>
+|-
+|LiteBSD
+|LiteBSD is a port of [[BSD|4.4BSD]] Unix adapted for embedded systems with memory mapping with paging support. The current target is the Microchip [[PIC microcontrollers#PIC32MZ|PIC32MZ]] microcontroller.<ref>{{Citation |last=Vakulenko |first=Serge |title=sergev/LiteBSD |date=2026-08-28 |url=https://github.com/sergev/LiteBSD |access-date=2026-08-29}}</ref>
+|}
+
+==BSD-like Systems==
+There are various operating systems, particularly [[Linux distribution]]s that attempt to imitate the design of BSD, but do not use the code base of any BSD Operating System.
+
+{|class = "wikitable sortable"
+|-
+!   Name   !! Description
+|-
+| [[Void Linux]]
+| Void Linux is a Linux distribution created in 2008 by Juan Romero Pardines, a former developer of [[NetBSD]]. It uses its own independent package manager, XBPS. It also has elements inspired by NetBSD, such as xbps-src—a source package management system inspired by [[pkgsrc]], an adaption of NetBSD's wtf utility, and also uses [[runit]] as its init system instead of [[systemd]].
+|-
+| [[CRUX]]
+| CRUX is a Linux distribution mainly targeted at expert computer users. It uses BSD-style initscripts and utilizes a [[Ports collection|ports system]] similar to a BSD-based operating system.
+|-
+| [[Chimera Linux]]
+| Chimera Linux is a Linux distribution that uses musl libc and core utilities based on FreeBSD.
+|-
+| Sabotage Linux
+| Sabotage is an experimental Linux distribution based on musl libc and busybox. It uses NetBSD curses and has  a lightweight multithreaded package and build manager, named butch.<ref>{{cite web |title=Sabotage Linux |url=https://sabotage-linux.github.io/ |access-date=9 February 2025}}</ref>
+|}
+
+==See also==
+* [[Comparison of BSD operating systems]]
+* [[List of products based on FreeBSD|Commercial products based on FreeBSD]]
+
+==References==
+{{Reflist}}
+
+==External links==
+* [https://hellosystem.github.io/docs/ helloSystem docs on GitHub]
+
+{{Berkeley Software Distribution}}
+
+{{DEFAULTSORT:BSD operating systems}}
+[[Category:Berkeley Software Distribution|*List]]
+[[Category:Lightweight Unix-like systems]]
+[[Category:Lists of operating systems]]
+[[Category:University of California, Berkeley-related lists]]

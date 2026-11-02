@@ -1,0 +1,513 @@
+flowchart TD
+  START(["СТАРТ<br/>Какую ОС ставить?"])
+  D1{"Играешь<br/>в AAA?"}
+  D2{"ПК слабый?<br/>≤8 ГБ / 10+ лет"}
+  D3{"Сервер / NAS /<br/>Homelab?"}
+  D4{"Анонимность /<br/>пентест?"}
+  D5{"Монтаж / музыка /<br/>дизайн?"}
+  D6{"Кодишь?"}
+  D7{"Нужны 1С /<br/>Office / Photoshop?"}
+  D8{"Apple +<br/>есть деньги?"}
+  D9{"«Просто работает»?<br/>нет = сам настрою"}
+
+  START -->|"начать"| D1
+  D1 -->|"нет"| D2
+  D2 -->|"нет"| D3
+  D3 -->|"нет"| D4
+  D4 -->|"нет"| D5
+  D5 -->|"нет"| D6
+  D6 -->|"нет"| D7
+  D7 -->|"нет"| D8
+  D8 -->|"нет"| D9
+
+  subgraph GAMING["ВЕТКА: Гейминг"]
+    D1a{"Античит?<br/>Valorant / FaceIT"}
+    D1b{"Геймпад +<br/>диван?"}
+    D1c{"Linux,<br/>но макс. FPS?"}
+    WIN11["Windows 11<br/>«все так живут»"]
+    ATLAS["AtlasOS<br/>«выжатая Win для игр»"]
+    BAZZITE["Bazzite<br/>«Deck на максималках»"]
+    CHIMERA["ChimeraOS / SteamOS<br/>«консоль из ПК»"]
+    HOLOISO["HoloISO<br/>«SteamOS на любом ПК»"]
+    NOBARA["Nobara<br/>«Fedora для геймеров»"]
+    CACHY["CachyOS<br/>«Arch на стероидах»"]
+    GARUDA["Garuda<br/>«дракон с RGB»"]
+    POPOS["Pop!_OS<br/>«геймер-инженер»"]
+    PIKAOS["PikaOS<br/>«геймерский Debian»"]
+    SUPERG["SuperGamer / Chapeau / Ultimate Edition<br/>«игры нулевых»"]
+  end
+  D1 -->|"да"| D1a
+  D1a -->|"да"| WIN11
+  D1a -->|"нет"| D1b
+  D1b -->|"да"| BAZZITE
+  D1b -->|"нет"| D1c
+  D1c -->|"да"| NOBARA
+  D1c -->|"нет"| POPOS
+  WIN11 -.->|"или"| ATLAS
+  BAZZITE -.->|"или"| CHIMERA
+  CHIMERA -.->|"или"| HOLOISO
+  NOBARA -.->|"или"| CACHY
+  CACHY -.->|"или"| GARUDA
+  POPOS -.->|"или"| PIKAOS
+  POPOS -.->|"или"| SUPERG
+
+  subgraph OLDPC["ВЕТКА: Воскрешение железа"]
+    D2a{"Динозавр?<br/>1–2 ГБ / 32-бит"}
+    D2b{"Красиво<br/>на 4–8 ГБ?"}
+    TINYCORE["TinyCore / Puppy<br/>«грузятся из ОЗУ»"]
+    ANTIX["antiX<br/>«без systemd»"]
+    ALPINE["Alpine<br/>«5 МБ и ты мужик»"]
+    CHIMLINUX["Chimera Linux<br/>«musl-десктоп»"]
+    KOLIBRI["KolibriOS<br/>«1 МБ + GUI!»"]
+    DSLBOX["Damn Small / Feather / MuLinux / Austrumi<br/>«дистро-диета»"]
+    SLITAZ["SliTaz / 4MLinux / Tiny SliTaz<br/>«крошки»"]
+    LINCON["LinuxConsole<br/>«французский live-CD»"]
+    DELI["DeLi / DeLicate / ConnochaetOS<br/>«ретро-минимализм»"]
+    TINY2["Monkey / Knopperdisk / DOSLINUX<br/>«микро-дистро»"]
+    PUPBOX["PuppyRus / Legacy OS / Macpup / Quirky / PUD<br/>«щенки»"]
+    RESCUE["SystemRescue / grml / Finnix / Knoppix / DRBL / Parted Magic / tomsrtbt / Refracta<br/>«спасатели»"]
+    RESCUE2["Rescatux / Super Grub2 Disk / RIP / Stresslinux / PloP / Resulinux<br/>«чинилки»"]
+    MORPHIX["Morphix / Quantian / DNALinux / ParallelKnoppix / Kaella / Demolinux<br/>«пионеры live-CD»"]
+    MINTXFCE["Lubuntu / Xubuntu<br/>«ноут ожил»"]
+    BODHI["Bodhi Linux<br/>«лёгкая и красивая»"]
+    LITELX["Linux Lite / LXLE / Peppermint / Fluxbuntu / Greenie / Runtu / TinyMe / U-lite<br/>«лёгкие Ubuntu»"]
+    SIMPLX["Simplicity / Snowlinux / SalineOS / ToriOS<br/>«лёгкие нулевых»"]
+    EMMAB["Emmabuntüs<br/>«ПК для бедных»"]
+    NETBOOK["Eeebuntu / Joli / Jolicloud / gOS / EasyPeasy / Cub / Netbook / Linpus<br/>«нетбуки»"]
+    MXLINUX["MX Linux<br/>«диванный админ»"]
+    Q4OS["Q4OS<br/>«как XP, но Linux»"]
+    ZORINLITE["Zorin Lite<br/>«для бабушки»"]
+    SPARKY["SparkyLinux<br/>«Debian полегче»"]
+  end
+  D2 -->|"да"| D2a
+  D2a -->|"да"| TINYCORE
+  D2a -->|"нет"| D2b
+  D2b -->|"да"| MINTXFCE
+  D2b -->|"нет"| MXLINUX
+  TINYCORE -.->|"или"| ANTIX
+  TINYCORE -.->|"или"| RESCUE
+  RESCUE -.->|"или"| RESCUE2
+  RESCUE -.->|"или"| MORPHIX
+  ANTIX -.->|"или"| ALPINE
+  ANTIX -.->|"или"| DSLBOX
+  DSLBOX -.->|"или"| SLITAZ
+  DSLBOX -.->|"или"| DELI
+  DSLBOX -.->|"или"| TINY2
+  SLITAZ -.->|"или"| PUPBOX
+  SLITAZ -.->|"или"| LINCON
+  ALPINE -.->|"или"| CHIMLINUX
+  ALPINE -.->|"или"| KOLIBRI
+  MINTXFCE -.->|"или"| BODHI
+  BODHI -.->|"или"| LITELX
+  BODHI -.->|"или"| EMMAB
+  LITELX -.->|"или"| SIMPLX
+  EMMAB -.->|"или"| NETBOOK
+  MXLINUX -.->|"или"| Q4OS
+  Q4OS -.->|"или"| ZORINLITE
+  ZORINLITE -.->|"или"| SPARKY
+
+  subgraph SERVER["ВЕТКА: Сервер / NAS / сеть"]
+    D3a{"Виртуалки?"}
+    D3b{"NAS /<br/>медиа?"}
+    D3c{"Корпоративный<br/>стандарт?"}
+    D3d{"Роутер /<br/>файрвол?"}
+    PROXMOX["Proxmox VE<br/>«домашний дата-центр»"]
+    PELICAN["PelicanHPC<br/>«кластер-флешка»"]
+    RANCHER["RancherOS / Container Linux<br/>«контейнерные»"]
+    TRUENAS["TrueNAS SCALE<br/>«хранитель фильмов»"]
+    OMV["OpenMediaVault<br/>«NAS из старого ПК»"]
+    UNRAID["Unraid<br/>«NAS, но платный»"]
+    CASAOS["CasaOS<br/>«сервер для чайников»"]
+    TURNKEY["TurnKey / Univention / Amahi / BlueOnyx / Zentyal<br/>«сервер в 1 клик»"]
+    SMESRV["SME Server / IPCop / Elastix / ClarkConnect / Untangle / Annvix / Nitix / Trustix<br/>«серверы нулевых»"]
+    RPID["Raspberry Pi OS / Raspbian / Twister / DietPi / Arch ARM / Flint OS / OSMC<br/>«для малинки»"]
+    HTPC["LinHES / GeeXboX / LinuxMCE / LibreELEC / MythDora / KnoppMyth<br/>«медиацентр»"]
+    XIGBOX["XigmaNAS / m0n0wall / Openfiler / Rockstor / OviOS<br/>«олдскул-NAS»"]
+    ROCKY["Rocky / Alma / RHEL<br/>«корпоративный»"]
+    RHELCLONES["CentOS / Oracle / Scientific / Rocks / CERN / PUIAS / Springdale / Tao<br/>«клоны RHEL»"]
+    AMAZON["Amazon Linux<br/>«облако AWS»"]
+    CLOUDLIN["CloudLinux<br/>«хостингам»"]
+    OSCRPM["Korora / Kororaa / Yellow Dog / Red Flag / Asianux / Miracle / Fermi / ClearOS<br/>«покойники RPM»"]
+    SUSELE["SUSE / SLES<br/>«немецкий RHEL»"]
+    DEBIANSRV["Debian / Ubuntu Server<br/>«стоит годами»"]
+    DEVUAN["Devuan<br/>«Debian без systemd»"]
+    OPNSENSE["OPNsense<br/>«роутер-монстр»"]
+    PFSENSE["pfSense<br/>«роутер для офиса»"]
+    OPENWRT["OpenWrt<br/>«прошивка для роутера»"]
+    VYOS["VyOS / Vyatta / DD-WRT / IPFire / Endian<br/>«роутер-гик»"]
+    COYOTE["Coyote / FREESCO / BrazilFW<br/>«роутеры-дискеты»"]
+    LEDE["LEDE<br/>«предок OpenWrt»"]
+    FREEBSD["FreeBSD<br/>«ZFS-маньяк»"]
+    OPENBSD["OpenBSD<br/>«параноик-сервер»"]
+  end
+  D3 -->|"да"| D3a
+  D3a -->|"да"| PROXMOX
+  D3a -->|"нет"| D3b
+  D3b -->|"да"| TRUENAS
+  D3b -->|"нет"| D3c
+  D3c -->|"да"| ROCKY
+  D3c -->|"нет"| D3d
+  D3d -->|"да"| OPNSENSE
+  D3d -->|"нет"| DEBIANSRV
+  PROXMOX -.->|"или"| PELICAN
+  PROXMOX -.->|"или"| RANCHER
+  TRUENAS -.->|"или"| OMV
+  TRUENAS -.->|"или"| HTPC
+  OMV -.->|"или"| UNRAID
+  OMV -.->|"или"| XIGBOX
+  UNRAID -.->|"или"| CASAOS
+  CASAOS -.->|"или"| TURNKEY
+  CASAOS -.->|"или"| RPID
+  TURNKEY -.->|"или"| SMESRV
+  ROCKY -.->|"или"| RHELCLONES
+  ROCKY -.->|"или"| SUSELE
+  RHELCLONES -.->|"или"| AMAZON
+  RHELCLONES -.->|"или"| OSCRPM
+  AMAZON -.->|"или"| CLOUDLIN
+  DEBIANSRV -.->|"или"| DEVUAN
+  DEBIANSRV -.->|"или BSD?"| FREEBSD
+  FREEBSD -.->|"или"| OPENBSD
+  OPNSENSE -.->|"или"| PFSENSE
+  PFSENSE -.->|"или"| OPENWRT
+  OPENWRT -.->|"или"| VYOS
+  OPENWRT -.->|"или"| LEDE
+  VYOS -.->|"или"| COYOTE
+
+  subgraph PRIVACY["ВЕТКА: Приватность / пентест"]
+    D4a{"Анонимность<br/>прямо сейчас?"}
+    D4b{"Всё по<br/>виртуалкам?"}
+    D4c{"Пентест /<br/>взлом?"}
+    TAILS["Tails<br/>«флешка-невидимка»"]
+    LPSBOX["LPS / Tinfoil Hat / EnGarde / Devil-Linux / Openwall<br/>«спецназ»"]
+    LIBERTE["Liberté<br/>«анархия-флешка»"]
+    QUBES["Qubes OS<br/>«всё по виртуалкам»"]
+    HEADS["Heads / Septor<br/>«паранойя в прошивке»"]
+    TORBOX["TorBOX<br/>«Tor-шлюз»"]
+    KALI["Kali<br/>«хакер из кино»"]
+    PARROT["Parrot OS<br/>«Kali с душой»"]
+    BLACKARCH["BlackArch<br/>«2800 утилит»"]
+    ATHENA["Athena OS<br/>«кибер-ниндзя»"]
+    BACKBOX["BackBox / SecUntu<br/>«Ubuntu-пентест»"]
+    NETHUNTER["Kali NetHunter<br/>«взлом с телефона»"]
+    DVULN["Damn Vulnerable<br/>«учись ломать»"]
+    OPHCRACK["Ophcrack<br/>«сброс паролей»"]
+    BACKTRACK["BackTrack / Auditor / WHAX / GnackTrack / Matriux<br/>«деды Kali»"]
+    NSTBOX["Network Security Toolkit / SELKS / NetSecL<br/>«сетевая аптечка»"]
+    SECUREBLUE["Secureblue<br/>«приватный десктоп»"]
+    WHONIX["Whonix / Kodachi<br/>«Tor-повседневка»"]
+    KICKSECURE["Kicksecure<br/>«безопасный Debian»"]
+    PHONE["GrapheneOS / CalyxOS / LineageOS / /e/ / Ubuntu Touch<br/>«приватный телефон»"]
+    LIBPHONE["Replicant / DivestOS / CopperheadOS / Mobian<br/>«свободный телефон»"]
+    CUSTOMROM["OmniROM / Paranoid / Resurrection<br/>«кастомные прошивки»"]
+    NONAND["Sailfish / KaiOS / Maemo / postmarketOS / Asteroid OS / LuneOS<br/>«не-Android»"]
+    NONAND2["MeeGo / Mer / Moblin / Tizen<br/>«мёртвые мобильные»"]
+    NONAND3["Firefox OS / CyanogenMod / Ubuntu Mobile / Cyanogen OS / MeeGo Harmattan<br/>«мёртвые мобильные-2»"]
+    OBSCMOB["Jlime / OpenZaurus / Emdebian / LEAF<br/>«КПК и встройка»"]
+    CAINE["CAINE / DEFT / Santoku<br/>«криминалисты»"]
+  end
+  D4 -->|"да"| D4a
+  D4a -->|"да"| TAILS
+  D4a -->|"нет"| D4b
+  D4b -->|"да"| QUBES
+  D4b -->|"нет"| D4c
+  D4c -->|"да"| KALI
+  D4c -->|"нет"| SECUREBLUE
+  TAILS -.->|"или"| LPSBOX
+  TAILS -.->|"или"| LIBERTE
+  QUBES -.->|"или"| HEADS
+  QUBES -.->|"или"| TORBOX
+  KALI -.->|"или"| PARROT
+  KALI -.->|"или"| BACKTRACK
+  PARROT -.->|"или"| BLACKARCH
+  BLACKARCH -.->|"или"| ATHENA
+  BLACKARCH -.->|"или"| NSTBOX
+  ATHENA -.->|"или"| BACKBOX
+  ATHENA -.->|"или"| NETHUNTER
+  NETHUNTER -.->|"или"| DVULN
+  NETHUNTER -.->|"или"| OPHCRACK
+  SECUREBLUE -.->|"или"| WHONIX
+  SECUREBLUE -.->|"или"| CAINE
+  WHONIX -.->|"или"| KICKSECURE
+  WHONIX -.->|"или"| PHONE
+  PHONE -.->|"или"| LIBPHONE
+  PHONE -.->|"или"| NONAND
+  LIBPHONE -.->|"или"| CUSTOMROM
+  NONAND -.->|"или"| NONAND2
+  NONAND2 -.->|"или"| NONAND3
+  NONAND3 -.->|"или"| OBSCMOB
+
+  subgraph CREATIVE["ВЕТКА: Творчество"]
+    D5a{"Профи +<br/>есть деньги?"}
+    D5b{"Музыка /<br/>студия?"}
+    MACOS["macOS<br/>«дизайнер с кредитом»"]
+    AVL["AV Linux<br/>«гитарист-звукарь»"]
+    DAPHILE["Daphile / AudioPhile / GNUGuitarINUX / Moode / Snakeoil<br/>«музыка-гики»"]
+    USTUDIO["Ubuntu Studio<br/>«монтажёр»"]
+    FEDORAJAM["Fedora Jam / Musix / dyne:bolic<br/>«музыка»"]
+    MUSTUDIO["Dream Studio / ArtistX / DeMuDi / Mediainlinux / 64Studio / Tango Studio / APODIO<br/>«музыка нулевых»"]
+  end
+  D5 -->|"да"| D5a
+  D5a -->|"да"| MACOS
+  D5a -->|"нет"| D5b
+  D5b -->|"да"| AVL
+  D5b -->|"нет"| USTUDIO
+  AVL -.->|"или"| DAPHILE
+  USTUDIO -.->|"или"| FEDORAJAM
+  FEDORAJAM -.->|"или"| MUSTUDIO
+
+  subgraph DEV["ВЕТКА: Разработка"]
+    D6a{"Терминал —<br/>дом родной?"}
+    D6b{"Docker / K8s<br/>стабильно?"}
+    ARCH["Arch<br/>«btw, я использую Arch»"]
+    ENDEAVOUR["EndeavourOS / Arco / Antergos<br/>«Arch без боли»"]
+    ARCHCRAFT["Archcraft<br/>«Arch сразу красивый»"]
+    ARCHFAM["ArchBang / ArchLabs / KaOS / Omarchy / BBQLinux / Bridge / Newtoos / KahelOS<br/>«ещё Arch»"]
+    PACIND["Chakra / Frugalware / Hyperbola<br/>«другой pacman»"]
+    PACBSD["PacBSD<br/>«Arch на FreeBSD»"]
+    NIXOS["NixOS / Guix<br/>«конфиг как код»"]
+    VOID["Void / Artix / Obarun<br/>«без systemd»"]
+    GENTOO["Gentoo<br/>«компилирую ради души»"]
+    CALCULATE["Calculate<br/>«Gentoo для ленивых»"]
+    SABAYON["Sabayon<br/>«мёртвый красавчик»"]
+    TOOROX["Toorox<br/>«польский Gentoo-live»"]
+    FUNTOO["Funtoo<br/>«Gentoo от создателя»"]
+    PENTOO["Pentoo<br/>«Gentoo-хакер»"]
+    FEDORA["Fedora WS / KDE<br/>«RedHat-стажёр»"]
+    BLUEFIN["Bluefin / Aurora<br/>«Fedora для разрабов»"]
+    SILVERBLUE["Silverblue / Kinoite<br/>«неубиваемая»"]
+    RFREM["Russian Fedora / Parsidora / Momonga<br/>«Fedora по-нашему»"]
+    UBUNTULTS["Ubuntu LTS<br/>«студент-работяга»"]
+    VANILLA["Vanilla OS<br/>«неубиваемая Ubuntu»"]
+    GLINUX["gLinux / Goobuntu<br/>«внутри Google»"]
+  end
+  D6 -->|"да"| D6a
+  D6a -->|"да"| ARCH
+  D6a -->|"нет"| D6b
+  D6b -->|"да"| FEDORA
+  D6b -->|"нет"| UBUNTULTS
+  ARCH -.->|"лень?"| ENDEAVOUR
+  ENDEAVOUR -.->|"или"| ARCHCRAFT
+  ENDEAVOUR -.->|"или"| ARCHFAM
+  ARCHFAM -.->|"или"| PACIND
+  PACIND -.->|"или"| PACBSD
+  ARCH -.->|"повтор?"| NIXOS
+  NIXOS -.->|"или"| VOID
+  VOID -.->|"хардкор?"| GENTOO
+  GENTOO -.->|"или"| CALCULATE
+  GENTOO -.->|"или"| PENTOO
+  CALCULATE -.->|"или"| SABAYON
+  CALCULATE -.->|"или"| FUNTOO
+  SABAYON -.->|"или"| TOOROX
+  FEDORA -.->|"или"| BLUEFIN
+  FEDORA -.->|"или"| RFREM
+  BLUEFIN -.->|"или"| SILVERBLUE
+  UBUNTULTS -.->|"или"| VANILLA
+  UBUNTULTS -.->|"или"| GLINUX
+
+  subgraph WIN["ВЕТКА: Офис / Windows / Apple"]
+    D7a{"Ненавидишь<br/>обновления?"}
+    D7b{"Госы / ФСТЭК /<br/>импортозамещение?"}
+    WINLTSC["Win 10 LTSC<br/>«без обновлений»"]
+    TINY11["Tiny11<br/>«Win11 для слабых ПК»"]
+    WIN11B["Win 11 + WSL2<br/>«и рыбку съесть»"]
+    ASTRA["Astra / ALT / ROSA<br/>«госзаказ (RU)»"]
+    GOVWW["GendBuntu / LiMux / Canaima / Pardus / Pisi / Estrella Roja / Progress / VENENUX<br/>«полиция и мэрии»"]
+    GOVWW2["Maya OS / Bharat OS / Nova / Clip OS / Hanthana / BlankOn / Bayanihan<br/>«гос-Линуксы мира»"]
+    REDSTAR["Red Star OS<br/>«КНДР одобряет»"]
+    MACOS2["macOS<br/>«в рассрочку»"]
+    HACKINTOSH["Hackintosh<br/>«macOS с болью»"]
+    ASAHI["Asahi<br/>«Linux на M1/M2»"]
+  end
+  D7 -->|"да"| D7b
+  D7b -->|"да"| ASTRA
+  D7b -->|"нет"| D7a
+  D7a -->|"да"| WINLTSC
+  D7a -->|"нет"| WIN11B
+  WINLTSC -.->|"или"| TINY11
+  ASTRA -.->|"или"| GOVWW
+  ASTRA -.->|"или"| REDSTAR
+  GOVWW -.->|"или"| GOVWW2
+  D8 -->|"да"| MACOS2
+  MACOS2 -.->|"или"| HACKINTOSH
+  MACOS2 -.->|"или"| ASAHI
+
+  subgraph EASY["ВЕТКА: Просто работает"]
+    D9a{"С Windows?<br/>Хочешь похоже?"}
+    D9b{"Ноут новый?<br/>NVIDIA / Wi-Fi?"}
+    D9c{"Красота<br/>важнее всего?"}
+    MINT["Mint Cinnamon / Edge<br/>«без сюрпризов»"]
+    ZORIN["Zorin Core<br/>«Windows, но Linux»"]
+    XPCLONES["Linux XP / Winux / Redmond / RoboLinux<br/>«XP-клоны»"]
+    RHINO["Rhino Linux<br/>«Ubuntu, но rolling»"]
+    MANDR["Mageia / OpenMandriva / PCLinuxOS / Conectiva / Granular / ComFusion / Mandrake / Unity Linux<br/>«семья Mandriva»"]
+    FEDORAKDE["Fedora KDE / Ultramarine<br/>«свежее и стабильно»"]
+    ELEMENTARY["elementary OS<br/>«хипстер»"]
+    DEEPIN["Deepin<br/>«красота из Китая»"]
+    ELIVE["Elive / Rxart<br/>«красота»"]
+    PEARBOX["Pear OS / Makulu / WattOS / Ulteo / MoonOS / Peach OSI / Sn0wL1nuX / SymphonyOS<br/>«красивые»"]
+    UBUNTU["Ubuntu / Kubuntu<br/>«дефолт для всех»"]
+    UFLAVOURS["Budgie / MATE / Cinnamon / Kylin / Unity / Mythbuntu / neon / Maui<br/>«вкусы Ubuntu»"]
+    TUXEDO["TUXEDO OS<br/>«для ноутов»"]
+    OPENSUSE["openSUSE Leap / Tumbleweed<br/>«порядок + YaST»"]
+    GECKO["GeckoLinux<br/>«openSUSE для людей»"]
+    KIWI["Kiwi<br/>«конструктор образов»"]
+    SOLUS["Solus / Endless<br/>«маме и школьнику»"]
+    EDUBUNTU["Edubuntu<br/>«детям учиться»"]
+    DOUDOU["DoudouLinux / PrimTux / Qimo / Phinx / Patinho / Leeenux / TEENpup<br/>«малышам»"]
+    LLX1["LliureX / MAX / Molinux / Linex / Jarro Negro / Linkat<br/>«школы Испании»"]
+    LLX2["LinuxTLE / Linux Caixa / Kurumin / Guadalinex / K12LTSP / K-DEMar / Lihuen / SuliX<br/>«школы мира»"]
+    NICHE["Poseidon / Sabily / Vinux / UberStudent / Uncom / Ubuntu CE / VINUX<br/>«нишевые»"]
+    SKOLE["Skolelinux<br/>«школьный Debian»"]
+    SERPENT["Serpent OS / Evolve OS<br/>«проекты Ikey»"]
+    CHROMEFLEX["ChromeOS Flex / FydeOS<br/>«браузер = ОС»"]
+    GALLIUM["GalliumOS<br/>«Linux на Chromebook»"]
+    CHROMEOS["ChromeOS / ChromiumOS / CloudReady / NayuOS<br/>«хромобук из коробки»"]
+    ANDROIDX86["Android-x86 / Remix OS / Fire OS<br/>«Android на ПК»"]
+  end
+  D9 -->|"просто"| D9a
+  D9a -->|"да"| MINT
+  D9a -->|"нет"| D9b
+  D9b -->|"да"| FEDORAKDE
+  D9b -->|"нет"| D9c
+  D9c -->|"да"| ELEMENTARY
+  D9c -->|"нет"| UBUNTU
+  MINT -.->|"или"| ZORIN
+  MINT -.->|"или"| RHINO
+  MINT -.->|"или"| MANDR
+  ZORIN -.->|"или"| XPCLONES
+  UBUNTU -.->|"или"| OPENSUSE
+  UBUNTU -.->|"ноут?"| TUXEDO
+  UBUNTU -.->|"нуб?"| SOLUS
+  UBUNTU -.->|"вкус?"| UFLAVOURS
+  OPENSUSE -.->|"или"| GECKO
+  GECKO -.->|"или"| KIWI
+  ELEMENTARY -.->|"или"| DEEPIN
+  ELEMENTARY -.->|"или"| ELIVE
+  ELIVE -.->|"или"| PEARBOX
+  SOLUS -.->|"или"| EDUBUNTU
+  SOLUS -.->|"или"| SERPENT
+  EDUBUNTU -.->|"или"| CHROMEFLEX
+  EDUBUNTU -.->|"или"| DOUDOU
+  EDUBUNTU -.->|"или"| SKOLE
+  DOUDOU -.->|"или"| LLX1
+  DOUDOU -.->|"или"| NICHE
+  LLX1 -.->|"или"| LLX2
+  CHROMEFLEX -.->|"или"| GALLIUM
+  CHROMEFLEX -.->|"или"| CHROMEOS
+  GALLIUM -.->|"или"| ANDROIDX86
+
+  subgraph DIY["ВЕТКА: Настроить всё сам"]
+    D9d{"Готов читать<br/>Wiki ночами?"}
+    D9e{"Неубиваемая<br/>система?"}
+    ARCH2["Arch / EndeavourOS<br/>«читай Wiki»"]
+    MANJARO["Manjaro<br/>«для ленивых»"]
+    NETRUNNER["Netrunner<br/>«KDE-легенда»"]
+    NIXOS2["NixOS<br/>«откат в 1 этап»"]
+    SLACK["Slackware / Gentoo / Void<br/>«олдфаг»"]
+    SLAKFAM["Slax / Porteus / Salix / Zenwalk / Vector / Absolute / AgiliaLinux / Plamo<br/>«Slackware для людей»"]
+    DEADSLACK["KateOS / NimbleX / Platypux / ZipSlack / Jurix / Bluewhite64 / GoblinX<br/>«мёртвые слаки»"]
+    DRACO["Draco<br/>«Slackware на BSD»"]
+    CRUXBOX["CRUX / Kwort<br/>«собери сам»"]
+    SRCBOX["LFS / Source Mage / GoboLinux / Sorcerer<br/>«совсем сам»"]
+    SRCBOX2["T2 / Exherbo / AryaLinux / Lunar / NuTyX<br/>«совсем сам-2»"]
+    INDBOX["Bedrock / Dragora / Clear Linux<br/>«независимые»"]
+    OBSCIND["paldo / Foresight / MkLinux / rPath / Yoper<br/>«покойники»"]
+    DEBIAN["Debian Testing / LMDE<br/>«деду пофиг»"]
+    SPIRAL["SpiralLinux<br/>«Debian без боли»"]
+    LIBRE1["Trisquel / PureOS / Parabola<br/>«свободные»"]
+    LIBRE2["gNewSense / Ututo / Uruk / Gobuntu / BLAG<br/>«свободные-2»"]
+    OBSCDEB["Ageless / SolydXK / Parsix / HandyLinux / NepaLinux / Sunwah / Libranet / Webconverger / Point Linux<br/>«кладбище Debian»"]
+    PROG["Progeny / Stormix<br/>«пионеры Debian»"]
+    KFREEBSD["GNU/kFreeBSD / GNU/NetBSD / Nexenta<br/>«франкенштейны»"]
+    SIDBOX["siduction / aptosid / Rebellin / Tanglu<br/>«дебиан-экстрим»"]
+  end
+  D9 -->|"сам"| D9d
+  D9d -->|"да"| ARCH2
+  D9d -->|"нет"| MANJARO
+  MANJARO -.->|"или"| NETRUNNER
+  ARCH2 -->|"поставил"| D9e
+  D9e -->|"да"| NIXOS2
+  D9e -->|"нет"| SLACK
+  SLACK -.->|"устал?"| DEBIAN
+  SLACK -.->|"или"| SLAKFAM
+  SLACK -.->|"или"| CRUXBOX
+  SLAKFAM -.->|"или"| DEADSLACK
+  SLAKFAM -.->|"или"| DRACO
+  CRUXBOX -.->|"или"| SRCBOX
+  SRCBOX -.->|"или"| SRCBOX2
+  SRCBOX2 -.->|"или"| INDBOX
+  INDBOX -.->|"или"| OBSCIND
+  DEBIAN -.->|"или"| SPIRAL
+  SPIRAL -.->|"или"| LIBRE1
+  SPIRAL -.->|"или"| KFREEBSD
+  SPIRAL -.->|"или"| SIDBOX
+  LIBRE1 -.->|"или"| LIBRE2
+  LIBRE2 -.->|"или"| OBSCDEB
+  OBSCDEB -.->|"или"| PROG
+
+  subgraph EXOTIC["ВЕТКА: Экзотика / ретро"]
+    D10{"Экзотика /<br/>ретро?"}
+    D10a{"Приставка /<br/>эмуляторы?"}
+    D10b{"Ностальгия<br/>по XP?"}
+    D10c{"ОС ради фана /<br/>с нуля?"}
+    BATOCERA["Batocera / Lakka<br/>«приставка из флешки»"]
+    PS2LINUX["Linux for PS2 / Buffalo / Red Ribbon<br/>«линукс на плойке»"]
+    COMMODORE["Commodore OS<br/>«C64 жив»"]
+    REACTOS["ReactOS<br/>«XP восстал»"]
+    FREEDOS["FreeDOS<br/>«DOS жив!»"]
+    BSDSTUFF["FreeBSD / OpenBSD / NetBSD<br/>«запустится на тостере»"]
+    GHOSTBSD["GhostBSD<br/>«BSD с лицом»"]
+    MIDBSD["MidnightBSD / NomadBSD / TrueOS / DesktopBSD<br/>«десктопные BSD»"]
+    FUGU["FuguIta / MirOS<br/>«OpenBSD-лайв»"]
+    DRAGONFLY["DragonFly BSD<br/>«BSD для умников»"]
+    TAHOE["BSDTahoe<br/>«BSD из 1991»"]
+    ILLUMOS["OpenIndiana / OmniOS / SmartOS<br/>«Solaris жив»"]
+    SERENITY["SerenityOS<br/>«ОС с нуля»"]
+    NINEFRONT["9front<br/>«Plan 9 для упоротых»"]
+    HAIKU["Haiku<br/>«BeOS из 90-х»"]
+    HISTBOX["MCC / Softlanding / Yggdrasil<br/>«деды (1992)»"]
+    HIST2A["Corel / MEPIS / CrunchBang / Kanotix / BLAG / ASPLinux / Aurox<br/>«нулевые»"]
+    HIST2B["Fuduntu / Dreamlinux / OpenGEU / Pinguy / Sun JDS<br/>«десятые»"]
+    HIST3["Caldera / Turbolinux / Vine / Red Hat / SCO<br/>«деды RPM»"]
+    PPCBOX["LinuxPPC / MintPPC / Slackintosh<br/>«линукс на PowerPC»"]
+    BUNSEN["BunsenLabs / CrunchBang++<br/>«наследники #!»"]
+    XANDROS["Xandros / Linspire / Lindows / Freespire / Lycoris<br/>«нулевые-коммерция»"]
+  end
+  OPENSUSE -.->|"не зашло?"| D10
+  DEBIAN -.->|"скучно?"| D10
+  D10 -->|"да"| D10a
+  D10 -->|"нет"| BSDSTUFF
+  D10 -->|"музей?"| HISTBOX
+  HISTBOX -.->|"или"| HIST2A
+  HISTBOX -.->|"или"| PPCBOX
+  HIST2A -.->|"или"| HIST2B
+  HIST2A -.->|"или"| BUNSEN
+  HIST2A -.->|"или"| XANDROS
+  HIST2B -.->|"или"| HIST3
+  D10a -->|"да"| BATOCERA
+  D10a -->|"нет"| D10b
+  D10b -->|"да"| REACTOS
+  D10b -->|"нет"| D10c
+  D10c -->|"да"| SERENITY
+  D10c -->|"нет"| HAIKU
+  BATOCERA -.->|"или"| PS2LINUX
+  BATOCERA -.->|"или"| COMMODORE
+  REACTOS -.->|"или"| FREEDOS
+  BSDSTUFF -.->|"или"| GHOSTBSD
+  BSDSTUFF -.->|"или"| DRAGONFLY
+  BSDSTUFF -.->|"или"| ILLUMOS
+  GHOSTBSD -.->|"или"| MIDBSD
+  GHOSTBSD -.->|"или"| FUGU
+  DRAGONFLY -.->|"или"| TAHOE
+  SERENITY -.->|"или"| NINEFRONT
+  HAIKU --> FINISH(["ФИНИШ:<br/>ставь и не ной<br/>(бэкап сделай!)"])
+  BSDSTUFF --> FINISH
+  BATOCERA -.-> FINISH
+  REACTOS -.-> FINISH
+
+  classDef startend fill:#1f2937,color:#fff,stroke:#1f2937
+  classDef decide fill:#fef08a,stroke:#a16207
+  classDef decide2 fill:#fdba74,stroke:#9a3412
+  class START,FINISH startend
+  class D1,D2,D3,D4,D5,D6,D7,D8,D9,D10 decide
+  class D1a,D1b,D1c,D2a,D2b,D3a,D3b,D3c,D3d,D4a,D4b,D4c,D5a,D5b,D6a,D6b,D7a,D7b,D9a,D9b,D9c,D9d,D9e,D10a,D10b,D10c decide2
