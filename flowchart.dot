@@ -2,8 +2,8 @@ digraph OS_Choice {
   rankdir=TB;
   splines=ortho;
   newrank=true;
-  nodesep=0.7;
-  ranksep=1.05;
+  nodesep=1.0;
+  ranksep=1.35;
   pad=0.4;
   bgcolor="white";
 
@@ -514,8 +514,13 @@ digraph OS_Choice {
     PPCBOX [label="LinuxPPC / MintPPC / Slackintosh\n«линукс на PowerPC»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
     BUNSEN [label="BunsenLabs / CrunchBang++\n«наследники #!»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
     XANDROS [label="Xandros / Linspire / Lindows / Freespire / Lycoris\n«нулевые-коммерция»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
-    EMBEDDED [label="Junos / IronPort / CellOS / Orbis OS / MontaVista / Prevas / Nura / Smallfoot\nNokia-инфраструктура / Android Things/Wear / Ballantin/Brillo\n«встраиваемые/проприетарные»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
-    ULTRARARE [label="KaarPux / Danix / Dizinha / Eurielec / ATmission / Arabian / ASLinux / Aquamorph\nAsturix / Ataraxia / B2D / Bardinux / Baruwa / Beehive / Berry / Best / Black Lab\nBluePoint / Bogus / Buhawi / Burapha / Craftworks / DARKSTAR / DILINUX / DLD\nDeadCD / Descent / ELX / ELinOS / Ekaaty / Enoch / Epidemic / Eridani / Everest\nHedinux / Hiweed / Hiwix / HostGIS / Imagineos / Independence / KaeilOS / Kalango\nKondara / Kongoni / LBA / LST / Leka / Librassoc / Linvo / Liquid Lemur / LuninuX\nMNIS / MOPSLinux / Madbox / Medialinux / Metamorphose / Midori / Mini / Minislack\nMonomaxos / Natures / NeoDizinha / NetStation / OS4 / Octoz / Ojuba / Omoikane\nOpenSLS / PC OS / Papug / Pingo / Plamo / Porteus Kiosk / QiLinux / Qomo / RR4\nSAM / SAMity / SL4P / SLAMPP / SMS / SOT / STUX / ServOS / Shift / Simplis\nSlaXBMC / Slack 390 / Slackel / Slamd64 / Sophos / Specifix / Splack / Stampede\nStephenson's Rocket / Stux / Synergy / TAMU / Topologilinux / Trans-Ameritech\nUHU / Uberyl / Unifix / VLOS / Wolvix / Yoper / AOSC OS / ARMedslack / Bluestar\nKwort / Maui / Minislack / Thinstation / Semplice / SOT / Refracta / White Box\nThink Blue / Gentoo/NetBSD / Gentoo/OpenBSD / adJ / Anonym.OS / Bitrig\nHyperbolaBSD / FreeSBIE / PicoBSD / AskoziaPBX / TrustedBSD / XORP\nUbuntu GNOME / Ubuntu JeOS / Fedora Core / LRP / fli4l / SmoothWall / Sentry\nGibraltar / Astaro / Buffalo / Raspbmc / Raspyfi / OS2005 / Kororaa / Springdale\nTao / PUIAS / The Linux For Schools Project\n«ультра-редкие синглы из хвоста таймлайна»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    EMBEDDED [label="Junos / IronPort / CellOS / Orbis OS / MontaVista\nPrevas / Nura / Smallfoot / Nokia-инфраструктура\nAndroid Things/Wear / Ballantin/Brillo\n«встраиваемые/проприетарные»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    ULTRA_A [label="KaarPux / Danix / Dizinha / Eurielec / ATmission / Arabian\nASLinux / Aquamorph / Asturix / Ataraxia / B2D / Bardinux / Baruwa\nBeehive / Berry / Best / Black Lab / BluePoint / Bogus / Buhawi / Burapha\nCraftworks / DARKSTAR / DILINUX / DLD / DeadCD / Descent / ELX / ELinOS\nEkaaty / Enoch / Epidemic / Eridani / Everest / Hedinux / Hiweed / Hiwix\n«ультра-редкие A–H»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    ULTRA_I [label="HostGIS / Imagineos / Independence / KaeilOS / Kalango / Kondara\nKongoni / LBA / LST / Leka / Librassoc / Linvo / Liquid Lemur / LuninuX\nMNIS / MOPSLinux / Madbox / Medialinux / Metamorphose / Midori / Mini\nMinislack / Monomaxos / Natures / NeoDizinha / NetStation / OS4 / Octoz\nOjuba / Omoikane / OpenSLS / PC OS / Papug / Pingo / Plamo / Porteus Kiosk\n«ультра-редкие I–P»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    ULTRA_Q [label="QiLinux / Qomo / RR4 / SAM / SAMity / SL4P / SLAMPP / SMS / SOT\nSTUX / ServOS / Shift / Simplis / SlaXBMC / Slack 390 / Slackel / Slamd64\nSophos / Specifix / Splack / Stampede / Stephenson's Rocket / Stux / Synergy\nTAMU / Topologilinux / Trans-Ameritech / UHU / Uberyl / Unifix / VLOS / Wolvix\nYoper / AOSC OS / ARMedslack / Bluestar / Kwort / Maui / Minislack / Thinstation\nSemplice / SOT / Refracta / White Box / Think Blue\n«ультра-редкие Q–Z»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+    BSDTAIL [label="Gentoo/NetBSD / Gentoo/OpenBSD / adJ / Anonym.OS / Bitrig\nHyperbolaBSD / FreeSBIE / PicoBSD / AskoziaPBX / TrustedBSD / XORP\n«BSD/illumos хвост»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    TAILBOX [label="Ubuntu GNOME / Ubuntu JeOS / Fedora Core / LRP / fli4l / SmoothWall\nSentry / Gibraltar / Astaro / Buffalo / Raspbmc / Raspyfi / OS2005\nKororaa / Springdale / Tao / PUIAS / The Linux For Schools Project\n«слияния и предки»", shape=box, style="filled,rounded", fillcolor="#d4d4d8"];
+
   }
   // Только 2 коротких входа снизу (из соседних веток), длинных диагоналей больше нет
   OPENSUSE -> D10 [xlabel="не зашло?", weight=1, color="#1f2937", fontcolor="#1f2937"];
@@ -548,7 +553,11 @@ digraph OS_Choice {
 
   FINISH [label="ФИНИШ:\nставь и не ной\n(бэкап сделай!)", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=13, width=2.4, height=1.1];
   HIST3 -> EMBEDDED [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  EMBEDDED -> ULTRARARE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  EMBEDDED -> ULTRA_A [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ULTRA_A -> ULTRA_I [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ULTRA_I -> ULTRA_Q [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  ULTRA_Q -> BSDTAIL [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  BSDTAIL -> TAILBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   HAIKU -> FINISH [weight=2];
   BSDSTUFF -> FINISH [weight=1];
   BATOCERA -> FINISH [weight=0, style=dashed];
