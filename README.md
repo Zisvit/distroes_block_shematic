@@ -69,6 +69,8 @@ flowchart TD
 | `flowchart.pdf` | Вектор для печати (крупный формат) |
 | `flowchart.dot` | Исходник Graphviz. Правится текстовым редактором, рендерится `dot` |
 | `flowchart.mmd` | Тот же граф в Mermaid (10 subgraphs по веткам) — для GitHub, Notion, Obsidian |
+| `flowchart_full.svg` | **Полная версия** — все ~290 дистрибутивов Linux/BSD (fdp-раскладка) |
+| `flowchart_simple.svg` | **Упрощённая версия** — 50 дистрибутивов, если полная не грузится |
 | `wiki_raw/` | Данные из Википедии + скрипты сбора (`fetch_wiki.py`, `analyze_coverage.py`) |
 
 ## Как читать схему
