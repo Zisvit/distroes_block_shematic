@@ -2,163 +2,175 @@ digraph OS_Simple {
   rankdir=TB;
   splines=ortho;
   newrank=true;
-  nodesep=1.0;
-  ranksep=1.35;
+  nodesep=0.9;
+  ranksep=1.25;
   pad=0.4;
   bgcolor="white";
 
-  node [fontname="DejaVu Sans", fontsize=12, penwidth=1.5];
+  node [fontname="DejaVu Sans", fontsize=12, penwidth=1.6];
   edge [fontname="DejaVu Sans Bold", fontsize=11, penwidth=1.8, arrowsize=0.9];
 
   START [label="СТАРТ\nКакую ОС ставить?", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=14, width=2.4, height=1.1];
 
-  Q1 [label="Играешь\nв AAA?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
-  Q2 [label="ПК слабый?\n≤8 ГБ / 10+ лет", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
-  Q3 [label="Сервер / NAS?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
-  Q4 [label="Анонимность /\nпентест?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
-  Q5 [label="Кодишь?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
-  Q6 [label="Нужны 1С /\nOffice / Photoshop?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
-  Q7 [label="Apple +\nесть деньги?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
-  Q8 [label="«Просто работает»?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  D1 [label="Играешь\nв AAA?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D2 [label="ПК слабый?\n≤8 ГБ / 10+ лет", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D3 [label="Сервер / NAS /\nHomelab?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.3, height=1.3];
+  D4 [label="Анонимность /\nпентест?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.3, height=1.3];
+  D5 [label="Кодишь?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.0, height=1.2];
+  D6 [label="Нужны 1С /\nOffice / Photoshop?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.5, height=1.3];
+  D7 [label="Apple +\nесть деньги?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  D8 [label="«Просто работает»?\n(нет = сам настрою)", shape=diamond, style=filled, fillcolor="#fef08a", width=2.8, height=1.4];
 
-  START -> Q1 [xlabel="начать", weight=10, color="#1f2937", fontcolor="#1f2937"];
-  Q1 -> Q2 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
-  Q2 -> Q3 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
-  Q3 -> Q4 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
-  Q4 -> Q5 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
-  Q5 -> Q6 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
-  Q6 -> Q7 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
-  Q7 -> Q8 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  START -> D1 [xlabel="начать", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D1 -> D2 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D2 -> D3 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D3 -> D4 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D4 -> D5 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D5 -> D6 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D6 -> D7 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  D7 -> D8 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
 
-  subgraph CL_GAMING {
-    label="Гейминг"; style="filled,rounded"; fillcolor="#faf5ff"; color="#c084fc"; fontsize=11;
-    N_WINDOWS_11 [label="Windows 11", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_STEAMOS [label="SteamOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_BAZZITE [label="Bazzite", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_NOBARA [label="Nobara", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_CHIMERAOS [label="ChimeraOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_HOLOISO [label="HoloISO", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_ATLASOS [label="AtlasOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_POP__OS [label="Pop!_OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+  subgraph cluster_gaming {
+    label="ВЕТКА: Гейминг";
+    style="filled,rounded"; fillcolor="#faf5ff"; color="#c084fc"; fontsize=11;
+    G1 [label="Античит?\nValorant / FaceIT", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    G2 [label="Хочешь консольный\nопыт?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    G_WIN [label="Windows 11", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    G_ATLAS [label="AtlasOS\n«выжатый под игры»", shape=box, style="filled,rounded", fillcolor="#bfdbfe"];
+    G_BAZZITE [label="Bazzite\n«SteamOS на любом ПК»", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    G_STEAMOS [label="SteamOS", shape=box, style="filled,rounded", fillcolor="#c4b5fd"];
+    G_NOBARA [label="Nobara\n«Fedora для геймеров»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    G_CACHY [label="CachyOS\n«Arch под игры»", shape=box, style="filled,rounded", fillcolor="#86efac"];
   }
+  D1 -> G1 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  G1 -> G_WIN [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  G1 -> G2 [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  G2 -> G_BAZZITE [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  G2 -> G_NOBARA [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  G_WIN -> G_ATLAS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  G_BAZZITE -> G_STEAMOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  G_NOBARA -> G_CACHY [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
 
-  subgraph CL_OLDPC {
-    label="Слабый ПК"; style="filled,rounded"; fillcolor="#fefce8"; color="#eab308"; fontsize=11;
-    N_ANTIX [label="antiX", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_PUPPY_LINUX [label="Puppy Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_TINY_CORE [label="Tiny Core", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LUBUNTU [label="Lubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_XUBUNTU [label="Xubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LINUX_LITE [label="Linux Lite", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_MX_LINUX [label="MX Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_PORTEUS [label="Porteus", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+  subgraph cluster_oldpc {
+    label="ВЕТКА: Воскрешение железа";
+    style="filled,rounded"; fillcolor="#fefce8"; color="#eab308"; fontsize=11;
+    O1 [label="Крайне старый?\n<2 ГБ ОЗУ", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    O2 [label="Хочется симпатичный\nна 4-8 ГБ?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    O_TINY [label="Tiny Core /\nPuppy Linux", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    O_ANTIX [label="antiX\n«лёгкий и полезный»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    O_LX [label="Lubuntu / Xubuntu\n«классика для старого»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    O_MX [label="MX Linux\n«лёгкий и удобный»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
+    O_LITE [label="Linux Lite\n«как Windows»", shape=box, style="filled,rounded", fillcolor="#fde68a"];
   }
+  D2 -> O1 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  O1 -> O_TINY [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  O1 -> O2 [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  O2 -> O_LX [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  O2 -> O_MX [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  O_TINY -> O_ANTIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  O_LX -> O_LITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
 
-  subgraph CL_SERVER {
-    label="Сервер / NAS"; style="filled,rounded"; fillcolor="#f0fdf4"; color="#16a34a"; fontsize=11;
-    N_UBUNTU_SERVER [label="Ubuntu Server", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_DEBIAN [label="Debian", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_PROXMOX_VE [label="Proxmox VE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_TRUENAS_SCALE [label="TrueNAS SCALE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_OPENMEDIAVAULT [label="OpenMediaVault", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_PFSENSE [label="pfSense", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_OPNSENSE [label="OPNsense", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_ROCKY_LINUX [label="Rocky Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+  subgraph cluster_server {
+    label="ВЕТКА: Сервер / NAS";
+    style="filled,rounded"; fillcolor="#f0fdf4"; color="#16a34a"; fontsize=11;
+    S1 [label="Виртуализация /\nhomelab?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    S2 [label="Только файловый\nсервер?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    S_PROXMOX [label="Proxmox VE\n«гипервизор»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    S_UBUNTU [label="Ubuntu Server\n«универсальный»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    S_DEBIAN [label="Debian\n«надёжный классик»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    S_TRUENAS [label="TrueNAS SCALE\n«NAS из коробки»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    S_OMV [label="OpenMediaVault\n«простой NAS»", shape=box, style="filled,rounded", fillcolor="#86efac"];
+    S_PFSENSE [label="pfSense / OPNsense\n«роутер/firewall»", shape=box, style="filled,rounded", fillcolor="#86efac"];
   }
+  D3 -> S1 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  S1 -> S_PROXMOX [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  S1 -> S2 [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  S2 -> S_TRUENAS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  S2 -> S_UBUNTU [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  S_PROXMOX -> S_UBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  S_UBUNTU -> S_DEBIAN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  S_TRUENAS -> S_OMV [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  S_UBUNTU -> S_PFSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
 
-  subgraph CL_PRIV {
-    label="Приватность"; style="filled,rounded"; fillcolor="#fdf2f8"; color="#be185d"; fontsize=11;
-    N_TAILS [label="Tails", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_QUBES_OS [label="Qubes OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_KALI_LINUX [label="Kali Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_PARROT_OS [label="Parrot OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_GRAPHENEOS [label="GrapheneOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_WHONIX [label="Whonix", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_KODACHI [label="Kodachi", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_TINFOIL_HAT [label="Tinfoil Hat", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+  subgraph cluster_privacy {
+    label="ВЕТКА: Приватность / Пентест";
+    style="filled,rounded"; fillcolor="#fdf2f8"; color="#be185d"; fontsize=11;
+    P1 [label="Анонимный\nвеб-сёрфинг?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    P2 [label="Этичный\nхак / пентест?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    P_TAILS [label="Tails\n«амнезийный»", shape=box, style="filled,rounded", fillcolor="#fda4af"];
+    P_WHONIX [label="Whonix\n«через Tor»", shape=box, style="filled,rounded", fillcolor="#fda4af"];
+    P_QUBES [label="Qubes OS\n«изоляция всего»", shape=box, style="filled,rounded", fillcolor="#fda4af"];
+    P_KALI [label="Kali Linux\n«инструменты пентеста»", shape=box, style="filled,rounded", fillcolor="#fda4af"];
+    P_PARROT [label="Parrot OS\n«пентест + повседневный»", shape=box, style="filled,rounded", fillcolor="#fda4af"];
+    P_GRAPHENE [label="GrapheneOS\n«приватный Android»", shape=box, style="filled,rounded", fillcolor="#fda4af"];
   }
+  D4 -> P1 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  P1 -> P_TAILS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  P1 -> P2 [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  P2 -> P_KALI [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  P2 -> P_QUBES [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  P_TAILS -> P_WHONIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  P_KALI -> P_PARROT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  P_QUBES -> P_GRAPHENE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
 
-  subgraph CL_DEV {
-    label="Разработка"; style="filled,rounded"; fillcolor="#eff6ff"; color="#2563eb"; fontsize=11;
-    N_ARCH_LINUX [label="Arch Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU [label="Ubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_FEDORA [label="Fedora", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_NIXOS [label="NixOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_OPENSUSE [label="openSUSE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_MANJARO [label="Manjaro", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_ENDEAVOUROS [label="EndeavourOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_VOID_LINUX [label="Void Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+  subgraph cluster_dev {
+    label="ВЕТКА: Разработка";
+    style="filled,rounded"; fillcolor="#eff6ff"; color="#2563eb"; fontsize=11;
+    DEV1 [label="Хочешь полный\nконтроль?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    DEV2 [label="Роллинг-релиз\nили стабильный?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    DEV_UBUNTU [label="Ubuntu\n«универсальный»", shape=box, style="filled,rounded", fillcolor="#93c5fd"];
+    DEV_FEDORA [label="Fedora\n«современный»", shape=box, style="filled,rounded", fillcolor="#93c5fd"];
+    DEV_ARCH [label="Arch Linux\n«настроишь всё»", shape=box, style="filled,rounded", fillcolor="#93c5fd"];
+    DEV_ENDEAVOUR [label="EndeavourOS\n«Arch проще»", shape=box, style="filled,rounded", fillcolor="#93c5fd"];
+    DEV_NIXOS [label="NixOS\n«воспроизводимый»", shape=box, style="filled,rounded", fillcolor="#93c5fd"];
+    DEV_OPENUSE [label="openSUSE Tumbleweed\n«стабильный роллинг»", shape=box, style="filled,rounded", fillcolor="#93c5fd"];
   }
+  D5 -> DEV1 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  DEV1 -> DEV_ARCH [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  DEV1 -> DEV2 [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  DEV2 -> DEV_NIXOS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  DEV2 -> DEV_UBUNTU [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  DEV_ARCH -> DEV_ENDEAVOUR [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DEV_NIXOS -> DEV_OPENUSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  DEV_UBUNTU -> DEV_FEDORA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
 
-  subgraph CL_OFFICE {
-    label="Офис / дом"; style="filled,rounded"; fillcolor="#faf5ff"; color="#a855f7"; fontsize=11;
-    N_LINUX_MINT [label="Linux Mint", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_ZORIN_OS [label="Zorin OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_ELEMENTARY_OS [label="elementary OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU [label="Ubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_MACOS [label="macOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_CHROMEOS [label="ChromeOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_ANDROID_X86 [label="Android-x86", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_REACTOS [label="ReactOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+  subgraph cluster_office {
+    label="ВЕТКА: Офис / Дом / Просто работает";
+    style="filled,rounded"; fillcolor="#fef2f2"; color="#dc2626"; fontsize=11;
+    OFF1 [label="Переход с Windows\nмаксимально близко?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.3, height=1.3];
+    OFF2 [label="Нужны\nApple-приложения?", shape=diamond, style=filled, fillcolor="#fdba74", width=2.2, height=1.2];
+    OFF_MINT [label="Linux Mint\n«самый привычный»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    OFF_ZORIN [label="Zorin OS\n«как Windows 7/10»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    OFF_ELEM [label="elementary OS\n«как macOS»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    OFF_UBUNTU [label="Ubuntu\n«классика»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    OFF_MACOS [label="macOS\n«гладкий»", shape=box, style="filled,rounded", fillcolor="#fecaca"];
+    OFF_CHROME [label="ChromeOS /\nChromeOS Flex", shape=box, style="filled,rounded", fillcolor="#fecaca"];
   }
+  D6 -> OFF1 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D7 -> OFF2 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D8 -> OFF_MINT [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  D8 -> OFF_UBUNTU [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  OFF1 -> OFF_MINT [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  OFF1 -> OFF_UBUNTU [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  OFF2 -> OFF_MACOS [xlabel="да", weight=1, color="#1f2937", fontcolor="#1f2937"];
+  OFF2 -> OFF_CHROME [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  OFF_MINT -> OFF_ZORIN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  OFF_UBUNTU -> OFF_ELEM [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
 
-  Q1 -> N_WINDOWS_11 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q2 -> N_ANTIX [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q3 -> N_UBUNTU_SERVER [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q4 -> N_TAILS [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q5 -> N_ARCH_LINUX [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q6 -> N_LINUX_MINT [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q7 -> N_LINUX_MINT [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q8 -> N_LINUX_MINT [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-
-  N_WINDOWS_11 -> N_STEAMOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_STEAMOS -> N_BAZZITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_BAZZITE -> N_NOBARA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_NOBARA -> N_CHIMERAOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_CHIMERAOS -> N_HOLOISO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_HOLOISO -> N_ATLASOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ATLASOS -> N_POP__OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_POP__OS -> FINISH [weight=1];
-  N_ANTIX -> N_PUPPY_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_PUPPY_LINUX -> N_TINY_CORE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_TINY_CORE -> N_LUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LUBUNTU -> N_XUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_XUBUNTU -> N_LINUX_LITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LINUX_LITE -> N_MX_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_MX_LINUX -> N_PORTEUS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_PORTEUS -> FINISH [weight=1];
-  N_UBUNTU_SERVER -> N_DEBIAN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_DEBIAN -> N_PROXMOX_VE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_PROXMOX_VE -> N_TRUENAS_SCALE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_TRUENAS_SCALE -> N_OPENMEDIAVAULT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_OPENMEDIAVAULT -> N_PFSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_PFSENSE -> N_OPNSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_OPNSENSE -> N_ROCKY_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ROCKY_LINUX -> FINISH [weight=1];
-  N_TAILS -> N_QUBES_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_QUBES_OS -> N_KALI_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_KALI_LINUX -> N_PARROT_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_PARROT_OS -> N_GRAPHENEOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_GRAPHENEOS -> N_WHONIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_WHONIX -> N_KODACHI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_KODACHI -> N_TINFOIL_HAT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_TINFOIL_HAT -> FINISH [weight=1];
-  N_ARCH_LINUX -> N_UBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU -> N_FEDORA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_FEDORA -> N_NIXOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_NIXOS -> N_OPENSUSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_OPENSUSE -> N_MANJARO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_MANJARO -> N_ENDEAVOUROS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ENDEAVOUROS -> N_VOID_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_VOID_LINUX -> FINISH [weight=1];
-  N_LINUX_MINT -> N_ZORIN_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ZORIN_OS -> N_ELEMENTARY_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ELEMENTARY_OS -> N_UBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU -> N_MACOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_MACOS -> N_CHROMEOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_CHROMEOS -> N_ANDROID_X86 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ANDROID_X86 -> N_REACTOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_REACTOS -> FINISH [weight=1];
-
-  FINISH [label="ФИНИШ\nставь и не ной", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=13, width=2.4, height=1.1];
+  FINISH [label="ФИНИШ\nставь и не ной\n(бэкап сделай!)", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=12, width=2.4, height=1.1];
+  G_WIN -> FINISH [weight=1];
+  G_NOBARA -> FINISH [weight=1];
+  O_TINY -> FINISH [weight=1];
+  O_MX -> FINISH [weight=1];
+  S_PROXMOX -> FINISH [weight=1];
+  S_TRUENAS -> FINISH [weight=1];
+  P_TAILS -> FINISH [weight=1];
+  P_KALI -> FINISH [weight=1];
+  P_QUBES -> FINISH [weight=1];
+  DEV_ARCH -> FINISH [weight=1];
+  DEV_NIXOS -> FINISH [weight=1];
+  DEV_UBUNTU -> FINISH [weight=1];
+  OFF_MINT -> FINISH [weight=1];
+  OFF_MACOS -> FINISH [weight=1];
+  OFF_CHROME -> FINISH [weight=1];
 }
