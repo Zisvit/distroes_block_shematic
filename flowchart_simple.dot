@@ -102,14 +102,14 @@ digraph OS_Simple {
     N_REACTOS [label="ReactOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
   }
 
-  Q1 -> CL_GAMING [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q2 -> CL_OLDPC [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q3 -> CL_SERVER [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q4 -> CL_PRIV [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q5 -> CL_DEV [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q6 -> CL_OFFICE [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q7 -> CL_OFFICE [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q8 -> CL_OFFICE [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q1 -> N_WINDOWS_11 [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q2 -> N_ANTIX [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q3 -> N_UBUNTU_SERVER [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q4 -> N_TAILS [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q5 -> N_ARCH_LINUX [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q6 -> N_LINUX_MINT [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q7 -> N_LINUX_MINT [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q8 -> N_LINUX_MINT [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
 
   N_WINDOWS_11 -> N_STEAMOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_STEAMOS -> N_BAZZITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
@@ -118,6 +118,7 @@ digraph OS_Simple {
   N_CHIMERAOS -> N_HOLOISO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_HOLOISO -> N_ATLASOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_ATLASOS -> N_POP__OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_POP__OS -> FINISH [weight=1];
   N_ANTIX -> N_PUPPY_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_PUPPY_LINUX -> N_TINY_CORE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_TINY_CORE -> N_LUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
@@ -125,6 +126,7 @@ digraph OS_Simple {
   N_XUBUNTU -> N_LINUX_LITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_LINUX_LITE -> N_MX_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_MX_LINUX -> N_PORTEUS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_PORTEUS -> FINISH [weight=1];
   N_UBUNTU_SERVER -> N_DEBIAN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_DEBIAN -> N_PROXMOX_VE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_PROXMOX_VE -> N_TRUENAS_SCALE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
@@ -132,6 +134,7 @@ digraph OS_Simple {
   N_OPENMEDIAVAULT -> N_PFSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_PFSENSE -> N_OPNSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_OPNSENSE -> N_ROCKY_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ROCKY_LINUX -> FINISH [weight=1];
   N_TAILS -> N_QUBES_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_QUBES_OS -> N_KALI_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_KALI_LINUX -> N_PARROT_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
@@ -139,6 +142,7 @@ digraph OS_Simple {
   N_GRAPHENEOS -> N_WHONIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_WHONIX -> N_KODACHI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_KODACHI -> N_TINFOIL_HAT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_TINFOIL_HAT -> FINISH [weight=1];
   N_ARCH_LINUX -> N_UBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_UBUNTU -> N_FEDORA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_FEDORA -> N_NIXOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
@@ -146,6 +150,7 @@ digraph OS_Simple {
   N_OPENSUSE -> N_MANJARO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_MANJARO -> N_ENDEAVOUROS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_ENDEAVOUROS -> N_VOID_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_VOID_LINUX -> FINISH [weight=1];
   N_LINUX_MINT -> N_ZORIN_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_ZORIN_OS -> N_ELEMENTARY_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_ELEMENTARY_OS -> N_UBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
@@ -153,12 +158,7 @@ digraph OS_Simple {
   N_MACOS -> N_CHROMEOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_CHROMEOS -> N_ANDROID_X86 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
   N_ANDROID_X86 -> N_REACTOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_REACTOS -> FINISH [weight=1];
 
   FINISH [label="ФИНИШ\nставь и не ной", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=13, width=2.4, height=1.1];
-  CL_GAMING -> FINISH [weight=1];
-  CL_OLDPC -> FINISH [weight=1];
-  CL_SERVER -> FINISH [weight=1];
-  CL_PRIV -> FINISH [weight=1];
-  CL_DEV -> FINISH [weight=1];
-  CL_OFFICE -> FINISH [weight=1];
 }
