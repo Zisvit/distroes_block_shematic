@@ -2,8 +2,8 @@ digraph OS_Simple {
   rankdir=TB;
   splines=ortho;
   newrank=true;
-  nodesep=0.9;
-  ranksep=1.2;
+  nodesep=1.0;
+  ranksep=1.35;
   pad=0.4;
   bgcolor="white";
 
@@ -12,90 +12,94 @@ digraph OS_Simple {
 
   START [label="СТАРТ\nКакую ОС ставить?", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=14, width=2.4, height=1.1];
 
-  Q1 [label="Играешь\nв AAA?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
-  Q2 [label="ПК слабый?\n≤8 ГБ / 10+ лет", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
-  Q3 [label="Сервер / NAS?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
-  Q4 [label="Анонимность /\nпентест?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
-  Q5 [label="Кодишь?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.2, height=1.2];
+  Q1 [label="Играешь\nв AAA?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  Q2 [label="ПК слабый?\n≤8 ГБ / 10+ лет", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  Q3 [label="Сервер / NAS?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  Q4 [label="Анонимность /\nпентест?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  Q5 [label="Кодишь?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  Q6 [label="Нужны 1С /\nOffice / Photoshop?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  Q7 [label="Apple +\nесть деньги?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
+  Q8 [label="«Просто работает»?", shape=diamond, style=filled, fillcolor="#fef08a", width=2.4, height=1.3];
 
   START -> Q1 [xlabel="начать", weight=10, color="#1f2937", fontcolor="#1f2937"];
   Q1 -> Q2 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
   Q2 -> Q3 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
   Q3 -> Q4 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
   Q4 -> Q5 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  Q5 -> Q6 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  Q6 -> Q7 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
+  Q7 -> Q8 [xlabel="нет", weight=10, color="#1f2937", fontcolor="#1f2937"];
 
   subgraph CL_GAMING {
     label="Гейминг"; style="filled,rounded"; fillcolor="#faf5ff"; color="#c084fc"; fontsize=11;
-    N_EDUBUNTU [label="Edubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_GOBUNTU [label="Gobuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_KUBUNTU [label="Kubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LUBUNTU [label="Lubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_MYTHBUNTU [label="Mythbuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_BUDGIE [label="Ubuntu Budgie", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_CINNAMON [label="Ubuntu Cinnamon", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_GNOME [label="Ubuntu GNOME", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_WINDOWS_11 [label="Windows 11", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_STEAMOS [label="SteamOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_BAZZITE [label="Bazzite", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_NOBARA [label="Nobara", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_CHIMERAOS [label="ChimeraOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_HOLOISO [label="HoloISO", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_ATLASOS [label="AtlasOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_POP__OS [label="Pop!_OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
   }
 
   subgraph CL_OLDPC {
-    label="Железо"; style="filled,rounded"; fillcolor="#fefce8"; color="#eab308"; fontsize=11;
-    N_UBUNTU_JEOS [label="Ubuntu JeOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_KYLIN [label="Ubuntu Kylin", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_MATE [label="Ubuntu MATE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_MOBILE [label="Ubuntu Mobile", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_NETBOOK_EDITION [label="Ubuntu Netbook Edition", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_SERVER [label="Ubuntu Server", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_STUDIO [label="Ubuntu Studio", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_UBUNTU_TV [label="Ubuntu TV", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    label="Слабый ПК"; style="filled,rounded"; fillcolor="#fefce8"; color="#eab308"; fontsize=11;
+    N_ANTIX [label="antiX", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_PUPPY_LINUX [label="Puppy Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_TINY_CORE [label="Tiny Core", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_LUBUNTU [label="Lubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_XUBUNTU [label="Xubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_LINUX_LITE [label="Linux Lite", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_MX_LINUX [label="MX Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_PORTEUS [label="Porteus", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
   }
 
   subgraph CL_SERVER {
-    label="Сервер"; style="filled,rounded"; fillcolor="#f0fdf4"; color="#16a34a"; fontsize=11;
-    N_UBUNTU_UNITY [label="Ubuntu Unity", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_XUBUNTU [label="Xubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_BACKBOX [label="BackBox", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_BODHI_LINUX [label="Bodhi Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_CUB_LINUX [label="Cub Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_DYNE_BOLIC [label="dyne:bolic", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_EASYPEASY [label="EasyPeasy", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_EEEBUNTU [label="Eeebuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    label="Сервер / NAS"; style="filled,rounded"; fillcolor="#f0fdf4"; color="#16a34a"; fontsize=11;
+    N_UBUNTU_SERVER [label="Ubuntu Server", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_DEBIAN [label="Debian", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_PROXMOX_VE [label="Proxmox VE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_TRUENAS_SCALE [label="TrueNAS SCALE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_OPENMEDIAVAULT [label="OpenMediaVault", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_PFSENSE [label="pfSense", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_OPNSENSE [label="OPNsense", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_ROCKY_LINUX [label="Rocky Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
   }
 
   subgraph CL_PRIV {
     label="Приватность"; style="filled,rounded"; fillcolor="#fdf2f8"; color="#be185d"; fontsize=11;
-    N_ELEMENT_OS [label="Element OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_ELEMENTARY_OS [label="elementary OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_EMMABUNT_S [label="Emmabuntüs", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_GALLIUMOS [label="GalliumOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_GENDBUNTU [label="GendBuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_GOOBUNTU [label="Goobuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_GOS [label="gOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_JOLI_OS [label="Joli OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_TAILS [label="Tails", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_QUBES_OS [label="Qubes OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_KALI_LINUX [label="Kali Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_PARROT_OS [label="Parrot OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_GRAPHENEOS [label="GrapheneOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_WHONIX [label="Whonix", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_KODACHI [label="Kodachi", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_TINFOIL_HAT [label="Tinfoil Hat", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
   }
 
   subgraph CL_DEV {
     label="Разработка"; style="filled,rounded"; fillcolor="#eff6ff"; color="#2563eb"; fontsize=11;
-    N_THE_LINUX_FOR_SCHOOLS_PROJECT [label="The Linux For Schools Project", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_KDE_NEON [label="KDE neon", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LIMUX [label="LiMux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LINUX_CAIXA_M_GICA [label="Linux Caixa Mágica", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LINUX_LITE [label="Linux Lite", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LINUX_MINT [label="Linux Mint", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LINUXMCE [label="LinuxMCE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LINUXTLE [label="LinuxTLE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_ARCH_LINUX [label="Arch Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_UBUNTU [label="Ubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_FEDORA [label="Fedora", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_NIXOS [label="NixOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_OPENSUSE [label="openSUSE", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_MANJARO [label="Manjaro", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_ENDEAVOUROS [label="EndeavourOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_VOID_LINUX [label="Void Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
   }
 
   subgraph CL_OFFICE {
-    label="Офис"; style="filled,rounded"; fillcolor="#faf5ff"; color="#a855f7"; fontsize=11;
-    N_LLIUREX [label="LliureX", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_LXLE_LINUX [label="LXLE Linux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_MAX [label="MAX", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_MAYA_OS [label="Maya OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_MOLINUX [label="Molinux", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_NETRUNNER [label="Netrunner", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_NOVA [label="Nova", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_OPENGEU [label="OpenGEU", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_PINGUY_OS [label="Pinguy OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
-    N_POP__OS [label="Pop!_OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    label="Офис / дом"; style="filled,rounded"; fillcolor="#faf5ff"; color="#a855f7"; fontsize=11;
+    N_LINUX_MINT [label="Linux Mint", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_ZORIN_OS [label="Zorin OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_ELEMENTARY_OS [label="elementary OS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_UBUNTU [label="Ubuntu", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_MACOS [label="macOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_CHROMEOS [label="ChromeOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_ANDROID_X86 [label="Android-x86", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
+    N_REACTOS [label="ReactOS", shape=box, style="filled,rounded", fillcolor="#e5e7eb"];
   }
 
   Q1 -> CL_GAMING [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
@@ -103,55 +107,55 @@ digraph OS_Simple {
   Q3 -> CL_SERVER [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
   Q4 -> CL_PRIV [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
   Q5 -> CL_DEV [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
-  Q5 -> CL_OFFICE [xlabel="нет", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q6 -> CL_OFFICE [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q7 -> CL_OFFICE [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
+  Q8 -> CL_OFFICE [xlabel="да", weight=2, color="#1f2937", fontcolor="#1f2937"];
 
-  N_EDUBUNTU -> N_GOBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_GOBUNTU -> N_KUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_KUBUNTU -> N_LUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LUBUNTU -> N_MYTHBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_MYTHBUNTU -> N_UBUNTU_BUDGIE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_BUDGIE -> N_UBUNTU_CINNAMON [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_CINNAMON -> N_UBUNTU_GNOME [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_JEOS -> N_UBUNTU_KYLIN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_KYLIN -> N_UBUNTU_MATE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_MATE -> N_UBUNTU_MOBILE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_MOBILE -> N_UBUNTU_NETBOOK_EDITION [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_NETBOOK_EDITION -> N_UBUNTU_SERVER [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_SERVER -> N_UBUNTU_STUDIO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_STUDIO -> N_UBUNTU_TV [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_UBUNTU_UNITY -> N_XUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_XUBUNTU -> N_BACKBOX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_BACKBOX -> N_BODHI_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_BODHI_LINUX -> N_CUB_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_CUB_LINUX -> N_DYNE_BOLIC [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_DYNE_BOLIC -> N_EASYPEASY [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_EASYPEASY -> N_EEEBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ELEMENT_OS -> N_ELEMENTARY_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_ELEMENTARY_OS -> N_EMMABUNT_S [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_EMMABUNT_S -> N_GALLIUMOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_GALLIUMOS -> N_GENDBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_GENDBUNTU -> N_GOOBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_GOOBUNTU -> N_GOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_GOS -> N_JOLI_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_THE_LINUX_FOR_SCHOOLS_PROJECT -> N_KDE_NEON [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_KDE_NEON -> N_LIMUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LIMUX -> N_LINUX_CAIXA_M_GICA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LINUX_CAIXA_M_GICA -> N_LINUX_LITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LINUX_LITE -> N_LINUX_MINT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LINUX_MINT -> N_LINUXMCE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LINUXMCE -> N_LINUXTLE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LLIUREX -> N_LXLE_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_LXLE_LINUX -> N_MAX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_MAX -> N_MAYA_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_MAYA_OS -> N_MOLINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_MOLINUX -> N_NETRUNNER [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_NETRUNNER -> N_NOVA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_NOVA -> N_OPENGEU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_OPENGEU -> N_PINGUY_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
-  N_PINGUY_OS -> N_POP__OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_WINDOWS_11 -> N_STEAMOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_STEAMOS -> N_BAZZITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_BAZZITE -> N_NOBARA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_NOBARA -> N_CHIMERAOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_CHIMERAOS -> N_HOLOISO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_HOLOISO -> N_ATLASOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ATLASOS -> N_POP__OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ANTIX -> N_PUPPY_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_PUPPY_LINUX -> N_TINY_CORE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_TINY_CORE -> N_LUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_LUBUNTU -> N_XUBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_XUBUNTU -> N_LINUX_LITE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_LINUX_LITE -> N_MX_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_MX_LINUX -> N_PORTEUS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_UBUNTU_SERVER -> N_DEBIAN [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_DEBIAN -> N_PROXMOX_VE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_PROXMOX_VE -> N_TRUENAS_SCALE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_TRUENAS_SCALE -> N_OPENMEDIAVAULT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_OPENMEDIAVAULT -> N_PFSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_PFSENSE -> N_OPNSENSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_OPNSENSE -> N_ROCKY_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_TAILS -> N_QUBES_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_QUBES_OS -> N_KALI_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_KALI_LINUX -> N_PARROT_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_PARROT_OS -> N_GRAPHENEOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_GRAPHENEOS -> N_WHONIX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_WHONIX -> N_KODACHI [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_KODACHI -> N_TINFOIL_HAT [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ARCH_LINUX -> N_UBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_UBUNTU -> N_FEDORA [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_FEDORA -> N_NIXOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_NIXOS -> N_OPENSUSE [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_OPENSUSE -> N_MANJARO [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_MANJARO -> N_ENDEAVOUROS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ENDEAVOUROS -> N_VOID_LINUX [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_LINUX_MINT -> N_ZORIN_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ZORIN_OS -> N_ELEMENTARY_OS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ELEMENTARY_OS -> N_UBUNTU [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_UBUNTU -> N_MACOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_MACOS -> N_CHROMEOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_CHROMEOS -> N_ANDROID_X86 [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
+  N_ANDROID_X86 -> N_REACTOS [xlabel="или", style=dashed, weight=0, color="#0e7490", fontcolor="#0e7490"];
 
   FINISH [label="ФИНИШ\nставь и не ной", shape=ellipse, style=filled, fillcolor="#1f2937", fontcolor=white, fontsize=13, width=2.4, height=1.1];
-  CL_GAMING -> FINISH [weight=2];
+  CL_GAMING -> FINISH [weight=1];
   CL_OLDPC -> FINISH [weight=1];
   CL_SERVER -> FINISH [weight=1];
   CL_PRIV -> FINISH [weight=1];
