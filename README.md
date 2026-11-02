@@ -70,7 +70,8 @@ flowchart TD
 | `flowchart.dot` | Исходник Graphviz. Правится текстовым редактором, рендерится `dot` |
 | `flowchart.mmd` | Тот же граф в Mermaid (10 subgraphs по веткам) — для GitHub, Notion, Obsidian |
 | `flowchart_full.svg` | **Полная версия** — все ~290 дистрибутивов Linux/BSD (fdp-раскладка) |
-| `flowchart_simple.svg` | **Упрощённая версия** — 50 дистрибутивов, если полная не грузится |
+| `flowchart_simple.svg` | **Упрощённая версия** — 50 дистрибутивов (каталог, без if/else; условия смотрите в основной схеме) |
+| `flowchart.svg` | **Основная схема** — if/else по 198 дистрибутивам, читается как плакат сверху вниз |
 | `flowchart_all_os.svg` | **Все ОС** — ~947 операционных систем из Википедии |
 | `wiki_raw/` | Данные из Википедии + скрипты сбора (`fetch_wiki.py`, `analyze_coverage.py`) |
 
