@@ -71,6 +71,7 @@ flowchart TD
 | `flowchart.mmd` | Тот же граф в Mermaid (10 subgraphs по веткам) — для GitHub, Notion, Obsidian |
 | `flowchart_full.svg` | **Полная версия** — все ~290 дистрибутивов Linux/BSD (fdp-раскладка) |
 | `flowchart_simple.svg` | **Упрощённая версия** — 50 дистрибутивов, если полная не грузится |
+| `flowchart_all_os.svg` | **Все ОС** — ~947 операционных систем из Википедии |
 | `wiki_raw/` | Данные из Википедии + скрипты сбора (`fetch_wiki.py`, `analyze_coverage.py`) |
 
 ## Как читать схему
