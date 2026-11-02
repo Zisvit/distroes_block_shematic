@@ -49,7 +49,7 @@ flowchart TD
 Классическая блок-схема выбора операционной системы: старт → цепочка ромбов
 `if/else` → прямоугольник с дистрибутивом. Стереотипы в названиях — в комплекте.
 
-**Масштаб: 198 блоков-ответов, 37 ромбов-вопросов, ~490 названий систем.**
+**Масштаб: ~350 блоков-ответов, 37 ромбов-вопросов, ~490 названий систем.**
 Источник названий — Википедия: статья
 [«List of Linux distributions»](https://en.wikipedia.org/wiki/List_of_Linux_distributions)
 (263 имени в 17 разделах), статья
@@ -175,7 +175,9 @@ Corel, MEPIS, CrunchBang, Kanotix, BLAG, ASPLinux, Aurox, Fuduntu, Dreamlinux, O
 Pinguy, Sun JDS, Caldera, Turbolinux, Vine, Red Hat, SCO, LinuxPPC, MintPPC,
 Slackintosh, BunsenLabs, CrunchBang++, Xandros, Linspire, Lindows, Freespire, Lycoris.
 
-## Честные исключения (не влезли поштучно)
+## Раньше «не влезли» — теперь в схеме
+
+Все дистрибутивы из списка ниже теперь имеют **отдельный блок** в ветке «Экзотика/ретро» (цепочка «или»).
 
 Встраиваемые/проприетарные (не ставятся): Junos, IronPort, CellOS, Orbis OS,
 MontaVista, Prevas, Nura, Smallfoot, Nokia-инфраструктура, Android Things/Wear,
